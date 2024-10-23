@@ -1,3 +1,4 @@
+import "@/assets/global.css"
 import MenuLink from '@/components/MenuLink'
 import Footer from '@/components/Footer'
 
