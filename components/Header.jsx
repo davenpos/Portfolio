@@ -14,7 +14,7 @@ export default function Header() {
             href: "/about"
         }
     ]
-    return (<header className="max-w-4xl mx-auto text-center my-2">
+    return (<header className="max-w-4xl mx-auto text-center my-2 z-10">
         <h2 className="text-5xl my-3 font-bold">Simeon Davenport</h2>
         <nav className="bg-amber-600 inline-block text-xl py-1 text-slate-800 rounded-full cursor-default">
             {menuLinks.map((ml, i) => {
