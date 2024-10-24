@@ -6,11 +6,11 @@ div#red { animation: redCircle 5s infinite linear; }
 div#blue { animation: blueCircle 5s infinite linear; }
 
 @keyframes redCircle {
-    0% { transform: rotate(0deg) translateY(calc(100vh / 2 - 6rem)) rotate(0deg); } 
-    100% { transform: rotate(360deg) translateY(calc(100vh / 2 - 6rem)) rotate(-360deg); }
+    0% { transform: rotate(0deg) translateY(calc(100vh / 2 - 7rem)) rotate(0deg); } 
+    100% { transform: rotate(360deg) translateY(calc(100vh / 2 - 7rem)) rotate(-360deg); }
 }
 
 @keyframes blueCircle {
-    0% { transform: rotate(180deg) translateY(calc(100vh / 2 - 6rem)) rotate(180deg); } 
-    100% { transform: rotate(540deg) translateY(calc(100vh / 2 - 6rem)) rotate(-540deg); }
+    0% { transform: rotate(180deg) translateY(calc(100vh / 2 - 7rem)) rotate(180deg); } 
+    100% { transform: rotate(540deg) translateY(calc(100vh / 2 - 7rem)) rotate(-540deg); }
 }

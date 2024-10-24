@@ -12,6 +12,21 @@ export default function Header() {
             id: 2,
             name: "About",
             href: "/about"
+        },
+        {
+            id: 3,
+            name: "Projects",
+            href: "/projects"
+        },
+        {
+            id: 4,
+            name: "Education",
+            href: "/education"
+        },
+        {
+            id: 5,
+            name: "Contact",
+            href: "/contact"
         }
     ]
     return (<header className="max-w-4xl mx-auto text-center my-2 z-10">
