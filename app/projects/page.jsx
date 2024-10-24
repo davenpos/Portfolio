@@ -9,8 +9,8 @@ export default async function Page() {
         <>
             <PageHeading text="Simeon's Projects" />
             <div>
-                {projects.map(project => {
-                    return <ProjectListing key={project.id} title={project.title} />
+                {projects.map(p => {
+                    return <ProjectListing key={p.id} title={p.title} slug={p.slug} />
                 })}
             </div>
         </>
