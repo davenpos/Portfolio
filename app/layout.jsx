@@ -13,8 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gradient-to-b from-green-600 to-green-400 bg-fixed min-h-[100dvh] flex flex-col drop-shadow-md z-10">
-        <Circle color="red" />
-        <Circle color="blue" />
+        <div className="absolute inset-0 z-0">
+          <Circle color="red" />
+          <Circle color="blue" />
+        </div>
         <Header />
         <main className="flex-1 bg-orange-200 opacity-85 rounded-[15px] p-3 w-full max-w-[1000px] mx-auto shadow-lg z-10">{children}</main>
         <Footer />
