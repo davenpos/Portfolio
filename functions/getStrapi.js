@@ -1,6 +1,6 @@
-export default async function getStrapi(slug, id = null) {
+export default async function getStrapi(slug, param = null) {
     let url = `http://localhost:1337/api/${slug}`
-    if (id) url += `?${id}`
+    if (param) url += `?${param}`
 
     const prom = await fetch(url)
     const info = await prom.json()
