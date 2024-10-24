@@ -1,5 +1,5 @@
 import PageHeading from '@/components/PageHeading'
-import ProjectListing from '@/components/ProjectListing'
+import Projects from '@/components/Projects'
 import getStrapi from '@/functions/getStrapi'
 
 export default async function Page() {
@@ -8,11 +8,7 @@ export default async function Page() {
     return (
         <>
             <PageHeading text="Simeon's Projects" />
-            <div>
-                {projects.map(p => {
-                    return <ProjectListing key={p.id} title={p.title} slug={p.slug} />
-                })}
-            </div>
+            <Projects projects={projects} />
         </>
     )
 }

@@ -1,5 +1,5 @@
 import PageHeading from '@/components/PageHeading'
-import ProjectListing from '@/components/ProjectListing'
+import Projects from '@/components/Projects'
 import getStrapi from '@/functions/getStrapi'
 
 export default async function Page() {
@@ -9,11 +9,7 @@ export default async function Page() {
     return (<>
         <p className="text-center">This is Simeon Davenport's portfolio. Take a look and see what his ever-growing experience in the realm of Computer Science is.</p>
         <PageHeading text="Simeon's Latest Projects:" />
-        <div>
-            {latestProjects.map(p => {
-                return <ProjectListing key={p.id} title={p.title} slug={p.slug} />
-            })}
-        </div>
+        <Projects projects={latestProjects} />
         <PageHeading text="Simeon's Latest Education:" />
         <div>(Latest 3 education)</div>
     </>)
