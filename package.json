@@ -14,6 +14,7 @@
   "description": "",
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "dotenv": "^16.4.5",
     "next": "^15.0.1",
     "postcss": "^8.4.47",
     "qs": "^6.13.0",
