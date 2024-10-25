@@ -2,7 +2,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 export default async function getStrapi(slug, param = null) {
-    let url = `${process.env.STRAPIURL}/api/${slug}?populate=*`
+    let url = `${process.env.NEXT_PUBLIC_STRAPIURL}/api/${slug}?populate=*`
     if (param) url += `&${param}`
 
     const prom = await fetch(url)

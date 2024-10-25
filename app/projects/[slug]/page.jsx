@@ -1,4 +1,6 @@
 import qs from "qs"
+import PageHeading from '@/components/PageHeading'
+import ScreenshotsSlide from '@/components/ScreenshotsSlide'
 import getStrapi from '@/functions/getStrapi'
 
 export default async function Page({params}) {
@@ -9,8 +11,10 @@ export default async function Page({params}) {
 
     const results = await getStrapi("projects", query)
     const currProject = results[0]
+    const screenshots = currProject.screenshot
 
-    return (
-        <div>{currProject.title}</div>
-    )
+    return (<>
+        <PageHeading text={currProject.title} />
+        <ScreenshotsSlide title={currProject.title} ss={screenshots} />
+    </>)
 }
