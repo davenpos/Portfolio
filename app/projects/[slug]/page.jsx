@@ -11,10 +11,11 @@ export default async function Page({params}) {
 
     const results = await getStrapi("projects", query)
     const currProject = results[0]
+    const title = currProject.title
     const screenshots = currProject.screenshot
 
     return (<>
-        <PageHeading text={currProject.title} />
-        <ScreenshotsSlide title={currProject.title} ss={screenshots} />
+        <PageHeading text={title} />
+        <ScreenshotsSlide title={title} ss={screenshots} />
     </>)
 }

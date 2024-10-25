@@ -1,18 +1,32 @@
 "use client"
-import { useEffect } from 'react'
-import newScreenshot from '@/functions/newScreenshot'
+import { useState, useEffect } from 'react'
+import Arrow from '@/components/Arrow'
+import nextScreenshot from '@/functions/nextScreenshot'
 const dotenv = require('dotenv')
 dotenv.config()
 
-export default function screenshotsSlide({title, ss}) {
-    useEffect(() => newScreenshot(), [])
+export default function ScreenshotsSlide({title, ss}) {
+    const [currIndex, setCurrIndex] = useState(0)
 
-    return (<>
-        <img src={null} alt="" id="currentImage" className="w-full" />
-        <img src={`${process.env.NEXT_PUBLIC_STRAPIURL}${ss[0].formats.large.url}`} alt={`Screenshot 1 of ${title}`} id="currentImage" className="w-full" />
+    const prevSlide = () => {
+        let newIndex = currIndex - 1
+        setCurrIndex(currIndex - 1)
+        nextScreenshot(currIndex, newIndex, ss.length)
+    }
+
+    const nextSlide = () => {
+        let newIndex = currIndex + 1
+        setCurrIndex(currIndex + 1)
+        nextScreenshot(currIndex, newIndex, ss.length)
+    }
+
+    return (<div className="relative group">
+        {ss.map((curr, i) => {
+            return <img id={`screenshot${i}`} key={curr.id} src={`${process.env.NEXT_PUBLIC_STRAPIURL}${curr.formats.large.url}`} alt={`Screenshot ${i + 1} of ${title}`} className={`w-full ${i > 0 ? "hidden" : ""}`} />
+        })}
         {ss.length > 1 ? <>
-            <a id="prevCover" className="hidden">&#10094;</a>
-            <a id="nextCover" className="">&#10095;</a>
+            <Arrow dir="left" handler={prevSlide} />
+            <Arrow dir="right" handler={nextSlide} />
         </> : null}
-    </>)
+    </div>)
 }
