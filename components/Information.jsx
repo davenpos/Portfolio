@@ -1,5 +1,5 @@
 export default function Information({type, text}) {
-    if (!isNaN(new Date(text))) {
+    if (!isNaN(new Date(text)) && text >= 10000000) {
         const date = new Date(text)
         let month
 
