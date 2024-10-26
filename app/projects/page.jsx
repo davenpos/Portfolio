@@ -7,7 +7,7 @@ export default async function Page() {
 
     return (
         <>
-            <PageHeading text="Simeon's Projects" />
+            <PageHeading text="Simeon's Projects" topMargin={false} />
             <Projects projects={projects} />
         </>
     )

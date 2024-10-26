@@ -15,7 +15,7 @@ export default async function Page({params}) {
     const screenshots = currProject.screenshot
 
     return (<>
-        <PageHeading text={title} />
+        <PageHeading text={title} topMargin={false} />
         <ScreenshotsSlide title={title} ss={screenshots} />
     </>)
 }
