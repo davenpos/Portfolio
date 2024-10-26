@@ -10,7 +10,7 @@ export default function ScreenshotsSlide({title, ss}) {
         new Glide("#screenshots").mount()
     }, [])
 
-    return (<div id="screenshots" className="overflow-hidden relative group">
+    return (<div id="screenshots" className="overflow-hidden relative group md:mb-2">
         <div className="glide__track" data-glide-el="track">
             <div className="glide__slides">
                 {ss.map((curr, i) => (
