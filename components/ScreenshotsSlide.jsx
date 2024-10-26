@@ -10,7 +10,7 @@ export default function ScreenshotsSlide({title, ss}) {
         new Glide("#screenshots").mount()
     }, [])
 
-    return (<div id="screenshots" className="overflow-hidden group">
+    return (<div id="screenshots" className="overflow-hidden relative group">
         <div className="glide__track" data-glide-el="track">
             <div className="glide__slides">
                 {ss.map((curr, i) => (
@@ -18,7 +18,7 @@ export default function ScreenshotsSlide({title, ss}) {
                 ))}
             </div>
             {ss.length > 1 ? <>
-                <div className="glide__arrows" data-glide-el="controls">
+                <div className="glide__arrows grid" data-glide-el="controls">
                     <Arrow dir="left" />
                     <Arrow dir="right" />
                 </div>
