@@ -8,9 +8,10 @@ import React from "react"
 
 export default async function Page({params}) {
     const p = await params
-    const query = qs.stringify({
+    let query = qs.stringify({
         filters: { slug: p.slug }
     })
+    query += "&sort=date:desc"
 
     const results = await getStrapi("projects", query)
     const currProject = results[0]

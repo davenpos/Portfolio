@@ -1,12 +1,10 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
-export default async function getStrapi(slug, param = null) {
-    let url = `${process.env.NEXT_PUBLIC_STRAPIURL}/api/${slug}?populate=*`
-    if (param) url += `&${param}`
+export default async function getStrapi(slug, param) {
+    let url = `${process.env.NEXT_PUBLIC_STRAPIURL}/api/${slug}?populate=*&${param}`
 
     const prom = await fetch(url)
     const info = await prom.json()
-    let data = info.data.sort((a, b) => new Date(b.date) - new Date(a.date))
-    return data
+    return info.data
 }

@@ -4,7 +4,7 @@ import ViewMore from '@/components/ViewMore'
 import getStrapi from '@/functions/getStrapi'
 
 export default async function Page() {
-    const projects = await getStrapi("projects")
+    const projects = await getStrapi("projects", "sort=date:desc")
     const latestProjects = projects.slice(0, 3)
 
     return (<>
