@@ -1,4 +1,4 @@
-import qs from "qs"
+import Description from '@/components/Description'
 import PageHeading from '@/components/PageHeading'
 import Projects from '@/components/Projects'
 import InstitutesList from '@/components/InstitutesList'
@@ -17,7 +17,7 @@ export default async function Page() {
     const currPageContent = pageContents[0]
 
     return (<>
-        <p className="text-center">{currPageContent.content}</p>
+        <Description desc={currPageContent.content} align="center" />
         <PageHeading text="Simeon's Latest Projects:" topMargin={true} />
         <Projects projects={latestProjects} />
         <ViewMore length={projects.length} href="/projects" text="View more of Simeon's projects" />

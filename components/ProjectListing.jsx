@@ -14,7 +14,7 @@ export default function ProjectListing(props) {
             <Link href={`/projects/${props.slug}`} className="hover:opacity-50 duration-300 font-bold text-xl block text-center md:text-left">
                 {props.title}
             </Link>
-            <p>{excerpt}</p>
+            <p className="text-sm md:text-base">{excerpt}</p>
         </div>
     </div>)
 }

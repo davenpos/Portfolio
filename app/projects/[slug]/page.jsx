@@ -1,4 +1,4 @@
-import React from "react"
+import Description from '@/components/Description'
 import ExternalLink from '@/components/ExternalLink'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
@@ -15,8 +15,6 @@ export default async function Page({params}) {
     const currProject = results[0]
     const title = currProject.title
     const screenshots = currProject.screenshot
-    let description = currProject.description
-    description = description.split("\n")
 
     return (<>
         <PageHeading text={title} topMargin={false} />
@@ -27,11 +25,6 @@ export default async function Page({params}) {
         <Information type="Stacks/frameworks" text={currProject.stacks_frameworks} />
         <Information type="Original date completed" text={currProject.date} />
         <br />
-        {description.map((p, i) => (<React.Fragment key={i}>
-            {p !== "" ? <>
-                <p className="text-justify text-sm md:text-base">{p}</p>
-                {i < description.length - 1 ? <br /> : null}
-            </> : null}
-        </React.Fragment>))}
+        <Description desc={currProject.description} align="justify" />
     </>)
 }

@@ -1,4 +1,5 @@
 import ClassesTable from '@/components/ClassesTable'
+import Description from '@/components/Description'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
 import getStrapi from '@/functions/getStrapi'
@@ -21,7 +22,7 @@ export default async function Page({params}) {
         {degree !== "none" ? <Information type="Degree" text={degree} /> : null}
         <Information type="GPA" text={currInstitute.gpa} />
         <br />
-        <p className="text-justify text-sm md:text-base">{currInstitute.description}</p>
+        <Description desc={currInstitute.description} align="justify" />
         <br />
         <PageHeading text="Classes:" topMargin={false} />
         <ClassesTable classes={currInstitute.classes} />
