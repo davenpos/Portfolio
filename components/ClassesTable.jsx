@@ -39,7 +39,7 @@ export default function ClassesTable({classes}) {
         }
     ]
 
-    return (<table className="w-full border border-black border-collapse">
+    return (<table className="w-full border border-black border-collapse text-sm md:text-base">
         <thead>
             <TableRow cells={headRow1} />
             <TableRow cells={headRow2} />

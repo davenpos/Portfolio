@@ -18,7 +18,7 @@ export default async function Page({params}) {
 
     return (<>
         <PageHeading text={name} topMargin={false} />
-        <img src={`${process.env.NEXT_PUBLIC_STRAPIURL}${currInstitute.logo.formats.thumbnail.url}`} alt={`${name} logo`} className="mx-auto rounded-full mt-2" />
+        <img src={`${process.env.NEXT_PUBLIC_STRAPIURL}${currInstitute.logo.formats.thumbnail.url}`} alt={`${name} logo`} className="mx-auto rounded-full mt-2 w-28 mb-2 md:w-auto" />
         <Information type="Years attended" text={`${currInstitute.start}-${currInstitute.end}`} />
         {degree !== "none" ? <Information type="Degree" text={degree} /> : null}
         <Information type="GPA" text={currInstitute.gpa} />
