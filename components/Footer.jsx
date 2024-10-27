@@ -25,6 +25,10 @@ export default function Footer() {
         {
             link: "mailto:simmywim@hotmail.com",
             icon: "envelope-o"
+        },
+        {
+            link: "tel:+12264023639",
+            icon: "phone"
         }
     ]
 
