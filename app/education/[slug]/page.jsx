@@ -1,4 +1,5 @@
 import qs from "qs"
+import ClassesTable from '@/components/ClassesTable'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
 import getStrapi from '@/functions/getStrapi'
@@ -14,7 +15,6 @@ export default async function Page({params}) {
     const currInstitute = results[0]
     const name = currInstitute.institute
     const degree = currInstitute.degree
-    let onlySemInRow = false
 
     return (<>
         <PageHeading text={name} topMargin={false} />
@@ -26,51 +26,6 @@ export default async function Page({params}) {
         <p className="text-justify text-sm md:text-base">{currInstitute.description}</p>
         <br />
         <PageHeading text="Classes:" topMargin={false} />
-        <table className="w-full border border-black border-collapse">
-            <tr className="border border-black h-6">
-                <th className="border border-black" colSpan="2">Course:</th>
-                <th className="border border-black" rowSpan="2">Grade:</th>
-                <th className="border border-black" rowSpan="2">Semester:</th>
-            </tr>
-            <tr className="border border-black h-6">
-                <th className="border border-black">Course Code:</th>
-                <th className="border border-black">Course Title:</th>
-            </tr>
-            {currInstitute.classes.map(sem => {
-                const semName = sem.semester
-                let numOfClasses = sem.classes.length
-                if (onlySemInRow) numOfClasses++
-
-                return (sem.classes.map((curr, i) => {
-                    if (i > 0 && onlySemInRow) onlySemInRow = false
-                    let semSpan = curr.semesterSpan
-
-                    if (semSpan) {
-                        semSpan = semSpan.toString()
-                        onlySemInRow = true
-                    }
-
-                    return (<>
-                        {onlySemInRow && i === 0 ? <tr className="border border-black h-6">
-                            <td rowSpan={numOfClasses}>{semName}</td>
-                        </tr> : null}
-                        <tr className="border border-black h-6">
-                            <td className="border border-black" rowSpan={semSpan ? semSpan : "1"}>
-                                {curr.courseCode}
-                            </td>
-                            <td className="border border-black" rowSpan={semSpan ? semSpan : "1"}>
-                                {curr.courseTitle}
-                            </td>
-                            <td className="border border-black" rowSpan={semSpan ? semSpan : "1"}>
-                                {curr.grade}
-                            </td>
-                            {i == 0 && !onlySemInRow ? <td className="border border-black" rowSpan={numOfClasses}>
-                                {semName}
-                            </td> : null}
-                        </tr>
-                    </>)
-                }))}
-            )}
-        </table>
+        <ClassesTable classes={currInstitute.classes} />
     </>)
 }
