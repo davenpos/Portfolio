@@ -1,16 +1,14 @@
-import qs from "qs"
+import React from "react"
 import ExternalLink from '@/components/ExternalLink'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
 import ScreenshotsSlide from '@/components/ScreenshotsSlide'
 import getStrapi from '@/functions/getStrapi'
-import React from "react"
+import queryString from '@/functions/queryString'
 
 export default async function Page({params}) {
     const p = await params
-    let query = qs.stringify({
-        filters: { slug: p.slug }
-    })
+    let query = queryString(p.slug)
     query += "&sort=date:desc"
 
     const results = await getStrapi("projects", query)

@@ -1,14 +1,12 @@
-import qs from "qs"
 import ClassesTable from '@/components/ClassesTable'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
 import getStrapi from '@/functions/getStrapi'
+import queryString from '@/functions/queryString'
 
 export default async function Page({params}) {
     const p = await params
-    let query = qs.stringify({
-        filters: { slug: p.slug }
-    })
+    let query = queryString(p.slug)
     query += "&sort=start:desc"
 
     const results = await getStrapi("educations", query)
