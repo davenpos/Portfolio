@@ -17,7 +17,7 @@ export default function ExternalLink({link, icon}) {
     }, [])
 
     return (<>
-        {link ? <a href={link} className="text-slate-950 hover:opacity-50 cursor-pointer duration-300" target="_blank">
+        {link ? <a href={link} className="hover:opacity-50 cursor-pointer duration-300" target="_blank">
             <i className={`fa fa-${icon} ${iconSize}`}></i>
         </a> : null}
     </>)

@@ -85,7 +85,7 @@ export default function ClassesTable({classes}) {
                             td: true,
                             colspan: "1",
                             rowspan: semSpan ? semSpan : "1",
-                            content: curr.grade
+                            content: curr.grade ? curr.grade : "N/A"
                         }
                     ]
 

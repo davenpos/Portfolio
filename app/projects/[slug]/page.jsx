@@ -23,8 +23,8 @@ export default async function Page({params}) {
     return (<>
         <PageHeading text={title} topMargin={false} />
         <ScreenshotsSlide title={title} ss={screenshots} />
-        <ExternalLink link={currProject.link} icon="link" />
-        <ExternalLink link={currProject.code} icon="github" />
+        <ExternalLink className="text-slate-950" link={currProject.link} icon="link" />
+        <ExternalLink className="text-slate-950" link={currProject.code} icon="github" />
         <Information type="Languages" text={currProject.languages} />
         <Information type="Stacks/frameworks" text={currProject.stacks_frameworks} />
         <Information type="Original date completed" text={currProject.date} />
