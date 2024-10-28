@@ -1,3 +1,4 @@
+import React from "react"
 import ExternalLink from '@/components/ExternalLink'
 
 export default function Footer() {
@@ -34,10 +35,10 @@ export default function Footer() {
 
     return (<footer className="text-center w-full max-w-[1000px] mx-auto bg-orange-800 rounded-[15px] opacity-85 my-3 text-white shadow-lg p-1 z-10">
         <p>
-            {links.map((link, i) => (<>
-                <ExternalLink key={link.link} link={link.link} icon={link.icon} />
+            {links.map((link, i) => (<React.Fragment key={link.link}>
+                <ExternalLink link={link.link} icon={link.icon} />
                 {i + 1 < links.length ? <>&nbsp;&nbsp;</> : null}
-            </>))}
+            </React.Fragment>))}
         </p>
         <p className="text-sm">&copy; {new Date().getFullYear()}</p>
         <p className="text-sm">Website powered by Render, built by Simeon Davenport</p>

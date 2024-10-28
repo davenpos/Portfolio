@@ -5,10 +5,10 @@ import sendEmail from '@/functions/sendEmail'
 export default function EmailForm() {
     const formSubmit = async e => {
         e.preventDefault()
+        await sendEmail(new FormData(e.target))
         document.querySelector("input[name='email']").value = ""
         document.querySelector("input[name='subject']").value = ""
         document.querySelector("textarea").value = ""
-        await sendEmail(new FormData(e.target))
     }
 
     return (<>
