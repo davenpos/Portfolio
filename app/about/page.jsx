@@ -11,7 +11,7 @@ export default async function Page() {
 
     return (<>
         <PageHeading text="About Simeon" topMargin={false} />
-        <img src={imgSrc.src} alt="Simeon Davenport" className="float-left mr-3" />
+        <img src={imgSrc.src} alt="Simeon Davenport" className="w-36 md:w-auto float-left mr-3" />
         <Description desc={currPageContent.content} align="left" />
     </>)
 }
