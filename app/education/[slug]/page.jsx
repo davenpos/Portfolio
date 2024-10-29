@@ -1,3 +1,4 @@
+import Certificate from '@/components/Certificate'
 import ClassesTable from '@/components/ClassesTable'
 import Description from '@/components/Description'
 import Information from '@/components/Information'
@@ -14,6 +15,8 @@ export default async function Page({params}) {
     const currInstitute = results[0]
     const name = currInstitute.institute
     const degree = currInstitute.degree
+    const honours = currInstitute.honours_certificate
+    const diploma = currInstitute.diploma
 
     return (<>
         <PageHeading text={name} topMargin={false} />
@@ -26,5 +29,11 @@ export default async function Page({params}) {
         <br />
         <PageHeading text="Classes:" topMargin={false} />
         <ClassesTable classes={currInstitute.classes} />
+        {(honours || diploma) ? <>
+            <div className={`${honours && diploma ? "md:grid md:grid-cols-2 md:place-items-center" : ""}`}>
+                <Certificate type="Diploma" src={`${process.env.NEXT_PUBLIC_STRAPIURL}${currInstitute.diploma?.formats.small.url}`} school={name} exists={diploma} />
+                <Certificate type="Honours" src={`${process.env.NEXT_PUBLIC_STRAPIURL}${currInstitute.honours_certificate?.formats.small.url}`} school={name} exists={honours} />
+            </div>
+        </> : null}
     </>)
 }
