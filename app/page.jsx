@@ -9,20 +9,18 @@ import queryString from '@/functions/queryString'
 export default async function Page() {
     let query = queryString("home")
 
-    const projects = await getStrapi("projects", "sort=date:desc")
-    const latestProjects = projects.slice(0, 3)
-    const education = await getStrapi("educations", "sort=start:desc")
-    const latestEducation = education.slice(0, 3)
+    const latestProjects = await getStrapi("projects", "sort=date:desc&pagination[start]=0&pagination[limit]=3", true)
+    const latestEducation = await getStrapi("educations", "sort=start:desc&pagination[start]=0&pagination[limit]=3", true)
     const pageContents = await getStrapi("page-contents", query)
     const currPageContent = pageContents[0]
 
     return (<>
         <Description desc={currPageContent.content} align="center" />
         <PageHeading text="Simeon's Latest Projects:" topMargin={true} />
-        <Projects projects={latestProjects} />
-        <ViewMore length={projects.length} href="/projects" text="View more of Simeon's projects" />
+        <Projects projects={latestProjects.data} />
+        <ViewMore length={latestProjects.meta.pagination.total} href="/projects" text="View more of Simeon's projects" />
         <PageHeading text="Simeon's Latest Education:" topMargin={true} />
-        <InstitutesList institutes={latestEducation} />
-        <ViewMore length={education.length} href="/education" text="View more of Simeon's education" />
+        <InstitutesList institutes={latestEducation.data} />
+        <ViewMore length={latestEducation.meta.pagination.total} href="/education" text="View more of Simeon's education" />
     </>)
 }
