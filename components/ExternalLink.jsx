@@ -1,20 +1,8 @@
 "use client"
-import { useEffect, useState } from "react";
+import windowSizeState from '@/functions/windowSizeState'
 
 export default function ExternalLink({link, icon}) {
-    const [iconSize, setIconSize] = useState("fa-lg")
-
-    useEffect(() => {
-        function updateIconSize() {
-            if (window.innerWidth > 768) setIconSize("fa-2x")
-            else setIconSize("fa-lg")
-        }
-
-        updateIconSize()
-
-        window.addEventListener("resize", updateIconSize)
-        return () => window.removeEventListener("resize", updateIconSize)
-    }, [])
+    const iconSize = windowSizeState("fa-lg", "fa-2x")
 
     return (<>
         {link ? <a href={link} className="hover:opacity-50 cursor-pointer duration-300" target="_blank">

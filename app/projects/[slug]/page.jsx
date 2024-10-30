@@ -5,7 +5,6 @@ import PageHeading from '@/components/PageHeading'
 import ScreenshotsSlide from '@/components/ScreenshotsSlide'
 import getStrapi from '@/functions/getStrapi'
 import queryString from '@/functions/queryString'
-import { space } from 'postcss/lib/list'
 
 export default async function Page({params}) {
     const p = await params

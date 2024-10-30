@@ -1,23 +1,11 @@
 "use client"
-import { useEffect, useState } from "react";
 const validator = require("validator")
 import FormInput from '@/components/FormInput'
 import sendEmail from '@/functions/sendEmail'
+import windowSizeState from '@/functions/windowSizeState'
 
 export default function EmailForm() {
-    const [emailLabel, setEmailLabel] = useState("Your email:")
-
-    useEffect(() => {
-        function updateIconSize() {
-            if (window.innerWidth > 768) setEmailLabel("Your email address:")
-            else setEmailLabel("Your email:")
-        }
-
-        updateIconSize()
-
-        window.addEventListener("resize", updateIconSize)
-        return () => window.removeEventListener("resize", updateIconSize)
-    }, [])
+    const emailLabel = windowSizeState("Your email:", "Your email address:");
 
     const formSubmit = async e => {
         e.preventDefault()

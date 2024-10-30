@@ -1,7 +1,11 @@
+"use client"
 import TableRow from '@/components/TableRow'
+import windowSizeState from '@/functions/windowSizeState'
 
 export default function ClassesTable({classes}) {
     let onlySemInRow = false
+    const courseCodeText = windowSizeState("Code:", "Course Code:")
+    const courseTitleText = windowSizeState("Title:", "Course Title:")
 
     const headRow1 = [
         {
@@ -29,13 +33,13 @@ export default function ClassesTable({classes}) {
             td: false,
             colspan: "1",
             rowspan: "1",
-            content: "Course Code:"
+            content: courseCodeText
         },
         {
             td: false,
             colspan: "1",
             rowspan: "1",
-            content: "Course Title:"
+            content: courseTitleText
         }
     ]
 

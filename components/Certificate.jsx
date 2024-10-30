@@ -1,6 +1,5 @@
 export default function Certificate({type, src, school, exists}) {
     const altDesc = type === "Diploma" ? "diploma" : "Honour's certificate"
-    if (type === "Honours") console.log(src)
 
     return (<>
         {exists ? <div className="h-fit flex flex-col items-center mt-3">
