@@ -9,7 +9,6 @@ import queryString from '@/functions/queryString'
 export default async function Page(props) {
     const searchParams = await props.searchParams
     const pageNum = searchParams.page ? parseInt(searchParams.page) : 1
-    console.log(pageNum)
     const numPerPage = 3
     const start = (pageNum - 1) * numPerPage
 
