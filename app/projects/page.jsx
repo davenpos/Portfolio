@@ -9,12 +9,13 @@ import queryString from '@/functions/queryString'
 export default async function Page(props) {
     const searchParams = await props.searchParams
     const pageNum = searchParams.page ? parseInt(searchParams.page) : 1
-    const numPerPage = 3
+    const numPerPage = 8
     const start = (pageNum - 1) * numPerPage
 
     const query = queryString("projects")
     const projects = await getStrapi("projects", `sort=date:desc&pagination[start]=${start}&pagination[limit]=${numPerPage}`, true)
-    const numOfPages = Math.ceil(projects.meta.pagination.total / numPerPage)
+    const total = projects.meta.pagination.total
+    const numOfPages = Math.ceil(total / numPerPage)
 
     const pageContents = await getStrapi("page-contents", query)
     const currPageContent = pageContents[0]
@@ -23,6 +24,6 @@ export default async function Page(props) {
         <PageHeading text="Simeon's Projects" topMargin={false} />
         <Description desc={currPageContent.content} align="center" />
         <Projects projects={projects.data} />
-        <Pagination pages={numOfPages} curr={pageNum} />
+        <Pagination pages={numOfPages} curr={pageNum} numPerPage={numPerPage} total={total} />
     </>)
 }

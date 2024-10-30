@@ -2,7 +2,7 @@
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import React from "react"
 
-export default function Pagination({pages, curr}) {
+export default function Pagination({pages, curr, numPerPage, total}) {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const { replace } = useRouter()
@@ -21,5 +21,7 @@ export default function Pagination({pages, curr}) {
         </React.Fragment>)
     }
 
-    return <div className="text-center text-base md:text-lg">{pageNums}</div>
+    return (<>
+        {numPerPage < total ? <div className="text-center text-base md:text-lg">{pageNums}</div> : null}
+    </>)
 }
