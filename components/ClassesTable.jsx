@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 import TableRow from '@/components/TableRow'
 import windowSizeState from '@/functions/windowSizeState'
 
@@ -102,10 +103,10 @@ export default function ClassesTable({classes}) {
                         })
                     }
 
-                    return (<>
+                    return (<React.Fragment key={`${semName}-${i}`}>
                         {onlySemInRow && i === 0 ? <TableRow cells={onlySemCell} /> : null}
                         <TableRow cells={courseInfo} />
-                    </>)
+                    </React.Fragment>)
                 }))}
             )}
         </tbody>
