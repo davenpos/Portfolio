@@ -2,28 +2,22 @@ import Description from '@/components/Description'
 import PageHeading from '@/components/PageHeading'
 import Pagination from '@/components/Pagination'
 import Projects from '@/components/Projects'
-//import getPagination from '@/functions/getPagination'
+import getPaginationVars from '@/functions/getPaginationVars'
 import getStrapi from '@/functions/getStrapi'
 import queryString from '@/functions/queryString'
 
 export default async function Page(props) {
-    const searchParams = await props.searchParams
-    const pageNum = searchParams.page ? parseInt(searchParams.page) : 1
     const numPerPage = 8
-    const start = (pageNum - 1) * numPerPage
+    const pagVars = await getPaginationVars(props, numPerPage, "projects", "date")
 
     const query = queryString("projects")
-    const projects = await getStrapi("projects", `sort=date:desc&pagination[start]=${start}&pagination[limit]=${numPerPage}`, true)
-    const total = projects.meta.pagination.total
-    const numOfPages = Math.ceil(total / numPerPage)
-
     const pageContents = await getStrapi("page-contents", query)
     const currPageContent = pageContents[0]
 
     return (<>
         <PageHeading text="Simeon's Projects" topMargin={false} />
         <Description desc={currPageContent.content} align="center" />
-        <Projects projects={projects.data} />
-        <Pagination pages={numOfPages} curr={pageNum} numPerPage={numPerPage} total={total} />
+        <Projects projects={pagVars.data} />
+        <Pagination pages={pagVars.numOfPages} curr={pagVars.pageNum} numPerPage={numPerPage} total={pagVars.total} />
     </>)
 }
