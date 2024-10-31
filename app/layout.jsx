@@ -2,6 +2,7 @@ import "@/assets/global.css"
 import Circle from '@/components/Circle'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import favicon from '@/assets/favicon.ico'
 
 export const metadata = {
   title: 'Simeon Davenport | Computer Programmer Portfolio',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href={favicon.src} sizes="any" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </head>
       <body className="bg-gradient-to-b from-green-600 to-green-400 bg-fixed min-h-[100dvh] flex flex-col drop-shadow-md z-10">
