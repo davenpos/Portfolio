@@ -2,7 +2,7 @@ import Description from '@/components/Description'
 import PageHeading from '@/components/PageHeading'
 import getStrapi from '@/functions/getStrapi'
 import queryString from '@/functions/queryString'
-import imgSrc from '@/assets/SD.jpg';
+import imgSrc from '@/assets/SD.jpg'
 
 export default async function Page() {
     const query = queryString("about")

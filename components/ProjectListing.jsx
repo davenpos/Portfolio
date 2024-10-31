@@ -1,6 +1,4 @@
 import Link from 'next/link'
-const dotenv = require('dotenv')
-dotenv.config()
 
 export default function ProjectListing(props) {
     const descArray = props.desc.split(' ')

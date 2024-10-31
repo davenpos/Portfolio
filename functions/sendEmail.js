@@ -1,6 +1,4 @@
 "use server"
-const dotenv = require('dotenv')
-dotenv.config()
 const sendgrid = require('@sendgrid/mail')
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
 

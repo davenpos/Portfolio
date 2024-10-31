@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import Information from '@/components/Information'
-const dotenv = require('dotenv')
-dotenv.config()
 
 export default function Institute(props) {
     return (<div className="grid grid-cols-[20%_1fr] md:grid-cols-[8.333333%_1fr] gap-3 my-3">

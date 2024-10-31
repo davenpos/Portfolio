@@ -7,11 +7,10 @@ export default async function getPaginationVars(props, numPerPage, slug, field) 
 
     const results = await getStrapi(slug, `sort=${field}:desc&pagination[start]=${start}&pagination[limit]=${numPerPage}`, true)
     const total = results.meta.pagination.total
-    const numOfPages = Math.ceil(total / numPerPage)
 
     return {
         data: results.data,
-        numOfPages: numOfPages,
+        numOfPages: Math.ceil(total / numPerPage),
         pageNum: pageNum,
         total: total
     }

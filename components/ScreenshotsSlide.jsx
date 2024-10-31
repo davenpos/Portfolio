@@ -2,8 +2,6 @@
 import { useEffect } from 'react'
 import Glide from '@glidejs/glide'
 import Arrow from '@/components/Arrow'
-const dotenv = require('dotenv')
-dotenv.config()
 
 export default function ScreenshotsSlide({title, ss}) {
     useEffect(() => {

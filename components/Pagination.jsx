@@ -16,7 +16,7 @@ export default function Pagination({pages, curr, numPerPage, total}) {
 
     for (let i = 1; i <= pages; i++) {
         pageNums.push(<React.Fragment key={i}>
-            <span className={`duration-300 ${i === curr ? "text-slate-950 underline font-bold" : "hover:opacity-50 cursor-pointer"}`} onClick={() => changePage(i)}>{i}</span>
+            <span className={`duration-300 ${i === curr ? "text-slate-950 font-bold" : "hover:opacity-50 cursor-pointer underline"}`} onClick={() => changePage(i)}>{i}</span>
             {i !== pages ? <>&nbsp;&nbsp;</> : null}
         </React.Fragment>)
     }
