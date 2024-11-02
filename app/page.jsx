@@ -1,16 +1,25 @@
+import qs from "qs"
 import Description from '@/components/Description'
 import PageHeading from '@/components/PageHeading'
 import Projects from '@/components/Projects'
 import InstitutesList from '@/components/InstitutesList'
 import ViewMore from '@/components/ViewMore'
 import getStrapi from '@/functions/getStrapi'
-import queryString from '@/functions/queryString'
 
 export default async function Page() {
-    let query = queryString("home")
+    let query = {
+        sort: "date:desc",
+        pagination: {
+            start: "0",
+            limit: "3"
+        }
+    }
+    const latestProjects = await getStrapi("projects", qs.stringify(query), true)
 
-    const latestProjects = await getStrapi("projects", "sort=date:desc&pagination[start]=0&pagination[limit]=3", true)
-    const latestEducation = await getStrapi("educations", "sort=start:desc&pagination[start]=0&pagination[limit]=3", true)
+    query.sort = "start:desc"
+    const latestEducation = await getStrapi("educations", qs.stringify(query), true)
+
+    query = qs.stringify({filters: { slug: "home" }})
     const pageContents = await getStrapi("page-contents", query)
     const currPageContent = pageContents[0]
 

@@ -1,17 +1,17 @@
+import qs from "qs"
 import Description from '@/components/Description'
 import PageHeading from '@/components/PageHeading'
 import Pagination from '@/components/Pagination'
 import InstitutesList from '@/components/InstitutesList'
 import getPaginationVars from '@/functions/getPaginationVars'
 import getStrapi from '@/functions/getStrapi'
-import queryString from '@/functions/queryString'
 
 export default async function Page(props) {
     const numPerPage = 10
     const pagVars = await getPaginationVars(props, numPerPage, "educations", "start")
 
-    const query = queryString("education")
-    const pageContents = await getStrapi("page-contents", query)
+    const stringifiedQuery = qs.stringify({filters: { slug: "education" }})
+    const pageContents = await getStrapi("page-contents", stringifiedQuery)
     const currPageContent = pageContents[0]
 
     return (<>

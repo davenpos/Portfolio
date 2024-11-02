@@ -1,17 +1,19 @@
+import qs from "qs"
 import Description from '@/components/Description'
 import ExternalLink from '@/components/ExternalLink'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
 import ScreenshotsSlide from '@/components/ScreenshotsSlide'
 import getStrapi from '@/functions/getStrapi'
-import queryString from '@/functions/queryString'
 
 export default async function Page({params}) {
     const p = await params
-    let query = queryString(p.slug)
-    query += "&sort=date:desc"
+    let query = {
+        filters: { slug: p.slug },
+        sort: "date:desc"
+    }
 
-    const results = await getStrapi("projects", query)
+    const results = await getStrapi("projects", qs.stringify(query))
     const currProject = results[0]
     const title = currProject.title
     const screenshots = currProject.screenshot
