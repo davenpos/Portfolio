@@ -6,7 +6,7 @@ export default async function getPaginationVars(props, numPerPage, slug, field) 
     const pageNum = searchParams.page ? parseInt(searchParams.page) : 1
     const start = (pageNum - 1) * numPerPage
 
-    let query = {
+    const query = {
         sort: `${field}:desc`,
         pagination: {
             start: start,
