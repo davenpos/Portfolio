@@ -30,6 +30,10 @@ export default function Footer() {
         {
             link: "tel:+12264023639",
             icon: "phone"
+        },
+        {
+            link: "/resume",
+            icon: "file-pdf-o"
         }
     ]
 
