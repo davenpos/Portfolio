@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,6 +17,20 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({addComponents}) {
+      addComponents({
+        '.hide-scrollbars': {
+          'overflow-x': 'auto',
+          'overflow-y': 'hidden',
+          'white-space': 'nowrap',
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          'touch-action': 'pan-x',
+          '&::-webkit-scrollbar': { 'display': 'none' }
+        }
+      })
+    })
+  ],
 }
 
