@@ -17,7 +17,7 @@ export default async function Page(props) {
     return (<>
         <PageHeading text="Simeon's Projects" topMargin={false} />
         <Description desc={currPageContent.content} align="center" />
-        <Projects projects={pagVars.data} />
+        <Projects projects={pagVars.data} langsLinks={true} />
         <Pagination pages={pagVars.numOfPages} curr={pagVars.pageNum} numPerPage={numPerPage} total={pagVars.total} />
     </>)
 }

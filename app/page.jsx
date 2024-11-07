@@ -26,7 +26,7 @@ export default async function Page() {
     return (<>
         <Description desc={currPageContent.content} align="center" />
         <PageHeading text="Simeon's Latest Projects:" topMargin={true} />
-        <Projects projects={latestProjects.data} />
+        <Projects projects={latestProjects.data} langsLinks={false} />
         <ViewMore length={latestProjects.meta.pagination.total} href="/projects" text="View more of Simeon's projects" />
         <PageHeading text="Simeon's Latest Education:" topMargin={true} />
         <InstitutesList institutes={latestEducation.data} />

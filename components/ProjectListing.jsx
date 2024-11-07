@@ -1,9 +1,13 @@
+"use client"
+import { useContext } from "react"
+import { LangsLinks } from './Projects'
 import Link from 'next/link'
 import LanguagesAndStacks from '@/components/LanguagesAndStacks'
 
 export default function ProjectListing(props) {
     const descArray = props.desc.split(' ')
     const excerpt = descArray.length < 70 ? props.desc : descArray.slice(0, 70).join(' ') + "..."
+    const langsLinks = useContext(LangsLinks)
 
     return (<div className="flex flex-col md:flex-row md:gap-3 my-3">
         <Link href={`/projects/${props.slug}`} className="overflow-hidden flex-shrink-0 w-[350px]">
@@ -13,9 +17,7 @@ export default function ProjectListing(props) {
             <Link href={`/projects/${props.slug}`} className="font-bold text-xl hover:opacity-50 duration-300 text-center md:text-left w-full">
                 {props.title}
             </Link>
-            <div className="hide-scrollbars w-full max-w-full overflow-x-auto whitespace-nowrap">
-                <LanguagesAndStacks arr={props.las} links={true} />
-            </div>
+            <LanguagesAndStacks arr={props.las} links={langsLinks} divClasses="hide-scrollbars w-full max-w-full overflow-x-auto whitespace-nowrap" />
             <p className="text-sm md:text-base w-full break-words overflow-hidden">
                 {excerpt}
             </p>
