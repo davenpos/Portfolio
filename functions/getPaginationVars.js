@@ -15,7 +15,6 @@ export default async function getPaginationVars(props, numPerPage, slug, field) 
     }
 
     const los = searchParams.langOrStack
-
     if (los) {
         query.filters = {
             languages_stacks: {

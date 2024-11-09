@@ -14,12 +14,12 @@ export default function ProjectListing(props) {
             <img src={`${process.env.NEXT_PUBLIC_STRAPIURL}/${props.img}`} className="object-cover hover:opacity-70 duration-300 hover:scale-125 w-full h-auto" alt="Project Image" />
         </Link>
         <div className="flex flex-col max-w-full overflow-hidden">
-            <div>
-                <Link href={`/projects/${props.slug}`} className="font-bold text-xl hover:opacity-50 duration-300 text-center md:text-left">
+            <div className="text-center md:text-left">
+                <Link href={`/projects/${props.slug}`} className="font-bold text-xl hover:opacity-50 duration-300">
                     {props.title}
                 </Link>
             </div>
-            <LanguagesAndStacks arr={props.las} links={langsLinks} divClasses="hide-scrollbars w-full max-w-full overflow-x-auto whitespace-nowrap" />
+            <LanguagesAndStacks arr={props.las} links={langsLinks} divClasses="hide-scrollbars w-full max-w-full whitespace-nowrap" />
             <p className="text-sm md:text-base w-full break-words overflow-hidden">
                 {excerpt}
             </p>
