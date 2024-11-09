@@ -7,7 +7,7 @@ import getPaginationVars from '@/functions/getPaginationVars'
 import getStrapi from '@/functions/getStrapi'
 
 export default async function Page(props) {
-    const numPerPage = 10
+    const numPerPage = 8
     const pagVars = await getPaginationVars(props, numPerPage, "educations", "start")
 
     const stringifiedQuery = qs.stringify({filters: { slug: "education" }})
