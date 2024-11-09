@@ -2,8 +2,6 @@
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import React from "react"
 
-//http://localhost:1337/api/projects?filters[languages_stacks][slug][$in]=java&populate=*
-
 export default function LanguagesAndStacks({arr, links, divClasses}) {
     const pathname = usePathname()
     const searchParams = useSearchParams()
