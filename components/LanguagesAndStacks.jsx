@@ -10,6 +10,7 @@ export default function LanguagesAndStacks({arr, links, divClasses}) {
     function langOrStackOnly(los) {
         const params = new URLSearchParams(searchParams)
         params.set('langOrStack', los)
+        params.set('page', 1)
         replace(`${pathname}?${params.toString()}`)
     }
 
