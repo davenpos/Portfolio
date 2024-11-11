@@ -1,17 +1,23 @@
 "use client"
-import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import React from "react"
+import useSetQueryParams from '@/hooks/useSetQueryParams'
 
 export default function LanguagesAndStacks({arr, links, divClasses}) {
-    const pathname = usePathname()
-    const searchParams = useSearchParams()
-    const { replace } = useRouter()
+    const setQueryParams = useSetQueryParams()
 
     function langOrStackOnly(los) {
-        const params = new URLSearchParams(searchParams)
-        params.set('langOrStack', los)
-        params.set('page', 1)
-        replace(`${pathname}?${params.toString()}`)
+        const params = [
+            {
+                queryVar: 'langOrStack',
+                val: los
+            },
+            {
+                queryVar: 'page',
+                val: 1
+            }
+        ]
+        
+        setQueryParams(params)
     }
 
     return (<div className={divClasses}>
