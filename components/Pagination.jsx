@@ -11,7 +11,7 @@ export default function Pagination({pages, curr, numPerPage, total}) {
         params[0].val = i
 
         pageNums.push(<React.Fragment key={i}>
-            <span className={`duration-300 ${i === curr ? "text-slate-950 font-bold" : "hover:opacity-50 cursor-pointer underline"}`} onClick={() => setQueryParams([{ queryVar: "page", val: i }])}>{i}</span>
+            <span className={`duration-300 ${i === curr ? "text-slate-950 font-bold" : "hover:opacity-50 cursor-pointer underline"}`} onClick={() => setQueryParams(params)}>{i}</span>
             {i !== pages ? <>&nbsp;&nbsp;</> : null}
         </React.Fragment>)
     }
