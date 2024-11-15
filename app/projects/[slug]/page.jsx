@@ -26,9 +26,9 @@ export default async function Page({params}) {
         <PageHeading text={title} topMargin={false} />
         <LanguagesAndStacks arr={languagesAndStacks} links={false} divClasses="text-center my-1.5" />
         <ScreenshotsSlide title={title} ss={screenshots} />
-        <ExternalLink className="text-slate-950" link={link} icon="link" />
+        <ExternalLink className="text-slate-950" link={link} style="solid" icon="link" />
         {link && code ? <span>&nbsp;</span> : null}
-        <ExternalLink className="text-slate-950" link={code} icon="github" />
+        <ExternalLink className="text-slate-950" link={code} style="brands" icon="github" />
         <Information type="Original date completed" text={currProject.date} />
         <br />
         <Description desc={currProject.description} align="justify" />
