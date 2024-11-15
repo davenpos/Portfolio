@@ -7,9 +7,7 @@ export default function useSetQueryParams() {
 
     const setQueryParams = arr => {
         const params = new URLSearchParams(searchParams)
-        arr.forEach(obj => {
-            params.set(obj.queryVar, obj.val)
-        })
+        arr.forEach(obj => params.set(obj.queryVar, obj.val))
         replace(`${pathname}?${params.toString()}`)
     }
 

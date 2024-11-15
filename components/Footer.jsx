@@ -5,42 +5,55 @@ export default function Footer() {
     const links = [
         {
             link: "https://www.linkedin.com/in/simeon-davenport/",
-            icon: "linkedin-square"
+            style: "brands",
+            icon: "linkedin"
         },
         {
             link: "https://github.com/davenpos",
+            style: "brands",
             icon: "github"
         },
         {
             link: "https://x.com/snorbertd1",
+            style: "brands",
             icon: "twitter"
         },
         {
             link: "https://www.instagram.com/snorbertd/",
+            style: "brands",
             icon: "instagram"
         },
         {
+            link: "https://discordapp.com/invite/U6bkBgy",
+            style: "brands",
+            icon: "discord"
+        },
+        {
             link: "https://www.youtube.com/@NorbertSD",
-            icon: "youtube-play"
+            style: "brands",
+            icon: "youtube"
         },
         {
             link: "mailto:simmywim@hotmail.com",
-            icon: "envelope-o"
+            style: "solid",
+            icon: "envelope"
         },
         {
             link: "tel:+12264023639",
+            style: "solid",
             icon: "phone"
         },
         {
             link: "/resume",
-            icon: "file-pdf-o"
+            style: "regular",
+            icon: "file-pdf"
         }
     ]
 
     return (<footer className="text-center w-full max-w-[1000px] mx-auto bg-orange-800 rounded-[15px] opacity-85 my-3 text-white shadow-lg p-1 z-10">
         <p>
             {links.map((link, i) => (<React.Fragment key={link.link}>
-                <ExternalLink link={link.link} icon={link.icon} />
+                <ExternalLink link={link.link} style={link.style} icon={link.icon} />
                 {i + 1 < links.length ? <>&nbsp;&nbsp;</> : null}
             </React.Fragment>))}
         </p>

@@ -1,4 +1,5 @@
 import "@/assets/global.css"
+import Script from "next/script"
 import Layout from '@/components/Layout'
 import favicon from '@/assets/favicon.ico'
 
@@ -13,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href={favicon.src} sizes="any" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <Script src="https://kit.fontawesome.com/dc80ea34e9.js" strategy="afterInteractive" />
       </head>
       <Layout children={children} />
     </html>
