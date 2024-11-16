@@ -47,7 +47,7 @@ export default function Footer() {
     return (<footer className="text-center w-full max-w-[1000px] mx-auto bg-orange-800 rounded-[15px] opacity-85 my-3 text-white shadow-lg p-1 z-10">
         <p>
             {links.map((link, i) => (<React.Fragment key={link.link}>
-                <ExternalLink link={link.link} style={link.style} icon={link.icon} />
+                <ExternalLink link={link.link} icon={link.icon} />
                 {i + 1 < links.length ? <>&nbsp;&nbsp;</> : null}
             </React.Fragment>))}
         </p>
