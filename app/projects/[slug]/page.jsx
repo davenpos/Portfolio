@@ -1,4 +1,6 @@
 import qs from "qs"
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 import Description from '@/components/Description'
 import ExternalLink from '@/components/ExternalLink'
 import Information from '@/components/Information'
@@ -26,9 +28,9 @@ export default async function Page({params}) {
         <PageHeading text={title} topMargin={false} />
         <LanguagesAndStacks arr={languagesAndStacks} links={false} divClasses="text-center my-1.5" />
         <ScreenshotsSlide title={title} ss={screenshots} />
-        <ExternalLink className="text-slate-950" link={link} style="solid" icon="link" />
+        <ExternalLink className="text-slate-950" link={link} icon={faLink} />
         {link && code ? <span>&nbsp;</span> : null}
-        <ExternalLink className="text-slate-950" link={code} style="brands" icon="github" />
+        <ExternalLink className="text-slate-950" link={code} icon={faGithub} />
         <Information type="Original date completed" text={currProject.date} />
         <br />
         <Description desc={currProject.description} align="justify" />

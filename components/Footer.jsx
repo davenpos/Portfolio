@@ -1,52 +1,46 @@
 import React from "react"
 import ExternalLink from '@/components/ExternalLink'
+import { faLinkedin, faGithub, faTwitter, faInstagram, faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
 
 export default function Footer() {
     const links = [
         {
             link: "https://www.linkedin.com/in/simeon-davenport/",
-            style: "brands",
-            icon: "linkedin"
+            icon: faLinkedin
         },
         {
             link: "https://github.com/davenpos",
-            style: "brands",
-            icon: "github"
+            icon: faGithub
         },
         {
             link: "https://x.com/snorbertd1",
-            style: "brands",
-            icon: "twitter"
+            icon: faTwitter
         },
         {
             link: "https://www.instagram.com/snorbertd/",
-            style: "brands",
-            icon: "instagram"
+            icon: faInstagram
         },
         {
             link: "https://discordapp.com/invite/U6bkBgy",
-            style: "brands",
-            icon: "discord"
+            icon: faDiscord
         },
         {
             link: "https://www.youtube.com/@NorbertSD",
-            style: "brands",
-            icon: "youtube"
+            icon: faYoutube
         },
         {
             link: "mailto:simmywim@hotmail.com",
-            style: "solid",
-            icon: "envelope"
+            icon: faEnvelope
         },
         {
             link: "tel:+12264023639",
-            style: "solid",
-            icon: "phone"
+            icon: faPhone
         },
         {
             link: "/resume",
-            style: "regular",
-            icon: "file-pdf"
+            icon: faFilePdf
         }
     ]
 

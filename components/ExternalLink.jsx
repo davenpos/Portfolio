@@ -1,13 +1,14 @@
 "use client"
 import Link from 'next/link'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import windowSizeState from '@/functions/windowSizeState'
 
-export default function ExternalLink({link, style, icon}) {
-    const iconSize = windowSizeState("fa-lg", "fa-2x")
+export default function ExternalLink({link, icon}) {
+    const iconSize = windowSizeState("lg", "2x")
 
     return (<>
         {link ? <Link href={link} className="hover:opacity-50 cursor-pointer duration-300" target="_blank">
-            <i className={`fa-${style} fa-${icon} ${iconSize}`}></i>
+            <FontAwesomeIcon icon={icon} size={iconSize} />
         </Link> : null}
     </>)
 }
