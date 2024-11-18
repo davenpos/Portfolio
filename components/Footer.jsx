@@ -1,6 +1,6 @@
 import React from "react"
 import ExternalLink from '@/components/ExternalLink'
-import { faLinkedin, faGithub, faTwitter, faInstagram, faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faGithub, faBluesky, faInstagram, faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
 
@@ -15,8 +15,8 @@ export default function Footer() {
             icon: faGithub
         },
         {
-            link: "https://x.com/snorbertd1",
-            icon: faTwitter
+            link: "https://bsky.app/profile/snorbertd.bsky.social",
+            icon: faBluesky
         },
         {
             link: "https://www.instagram.com/snorbertd/",
