@@ -5,7 +5,6 @@ import ProjectListing from '@/components/ProjectListing'
 export const LangsLinks = createContext()
 
 export default function Projects({projects, langsLinks}) {
-
     return (<LangsLinks.Provider value={langsLinks}>
         <div>
             {projects.map(p => {

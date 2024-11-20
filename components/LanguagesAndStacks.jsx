@@ -4,17 +4,19 @@ import useSetQueryParams from '@/hooks/useSetQueryParams'
 
 export default function LanguagesAndStacks({arr, links, divClasses}) {
     const setQueryParams = useSetQueryParams()
-    const params = [
-        { queryVar: 'langOrStack' },
-        {
-            queryVar: 'page',
-            val: 1
-        }
-    ]
 
     return (<div className={divClasses}>
         {arr.map((los, i) => {
-            params[0].val = los.slug
+            const params = [
+                {
+                    queryVar: 'langOrStack',
+                    val: los.slug
+                },
+                {
+                    queryVar: 'page',
+                    val: 1
+                }
+            ]
 
             return (<React.Fragment key={los.id}>
                 {links ?
