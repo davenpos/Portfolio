@@ -22,7 +22,7 @@ export default async function Page({params}) {
 
     return (<>
         <PageHeading text={name} topMargin={false} />
-        <img src={`${process.env.NEXT_PUBLIC_STRAPIURL}${currInstitute.logo.formats.thumbnail.url}`} alt={`${name} logo`} className="mx-auto rounded-full mt-2 w-28 mb-2 md:w-auto" />
+        <img src={currInstitute.logo.formats.thumbnail.url} alt={`${name} logo`} className="mx-auto rounded-full mt-2 w-28 mb-2 md:w-auto" />
         <Information type="Years attended" text={`${currInstitute.start}-${currInstitute.end}`} />
         {degree !== "none" ? <Information type="Degree" text={degree} /> : null}
         <Information type="GPA" text={currInstitute.gpa} />
@@ -33,8 +33,8 @@ export default async function Page({params}) {
         <ClassesTable classes={currInstitute.classes} />
         {(honours || diploma) ? <>
             <div className={`${honours && diploma ? "md:grid md:grid-cols-2 md:place-items-center" : ""}`}>
-                <Certificate type="Diploma" src={`${process.env.NEXT_PUBLIC_STRAPIURL}${currInstitute.diploma?.formats.small.url}`} school={name} exists={diploma} />
-                <Certificate type="Honours" src={`${process.env.NEXT_PUBLIC_STRAPIURL}${currInstitute.honours_certificate?.formats.small.url}`} school={name} exists={honours} />
+                <Certificate type="Diploma" src={currInstitute.diploma?.formats.small.url} school={name} exists={diploma} />
+                <Certificate type="Honours" src={currInstitute.honours_certificate?.formats.small.url} school={name} exists={honours} />
             </div>
         </> : null}
     </>)

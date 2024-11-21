@@ -12,7 +12,7 @@ export default function ScreenshotsSlide({title, ss}) {
         <div className="glide__track" data-glide-el="track">
             <div className="glide__slides">
                 {ss.map((curr, i) => (
-                    <img id={`screenshot${i}`} key={curr.id} src={`${process.env.NEXT_PUBLIC_STRAPIURL}${curr.formats.large.url}`} alt={`Screenshot ${i + 1} of ${title}`} className="w-full inline" />
+                    <img id={`screenshot${i}`} key={curr.id} src={curr.formats.large.url} alt={`Screenshot ${i + 1} of ${title}`} className="w-full inline" />
                 ))}
             </div>
             {ss.length > 1 ? <>
