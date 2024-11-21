@@ -1,5 +1,5 @@
 "use client"
-import { useContext } from "react"
+import { useContext, Suspense } from "react"
 import { LangsLinks } from './Projects'
 import Link from 'next/link'
 import LanguagesAndStacks from '@/components/LanguagesAndStacks'
@@ -19,7 +19,9 @@ export default function ProjectListing(props) {
                     {props.title}
                 </Link>
             </div>
-            <LanguagesAndStacks arr={props.las} links={langsLinks} divClasses="hide-scrollbars w-full max-w-full whitespace-nowrap" />
+            <Suspense fallback={null}>
+                <LanguagesAndStacks arr={props.las} links={langsLinks} divClasses="hide-scrollbars w-full max-w-full whitespace-nowrap" />
+            </Suspense>
             <p className="text-sm md:text-base w-full break-words overflow-hidden">
                 {excerpt}
             </p>
