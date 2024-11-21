@@ -11,7 +11,7 @@ export default function ProjectListing(props) {
 
     return (<div className="flex flex-col md:flex-row md:gap-3 my-3">
         <Link href={`/projects/${props.slug}`} className="overflow-hidden flex-shrink-0 w-[350px]">
-            <img src={`${process.env.NEXT_PUBLIC_STRAPIURL}/${props.img}`} className="object-cover hover:opacity-70 duration-300 hover:scale-125 w-full h-auto" alt="Project Image" />
+            <img src={`${process.env.NEXT_PUBLIC_STRAPIURL}${props.img}`} className="object-cover hover:opacity-70 duration-300 hover:scale-125 w-full h-auto" alt="Project Image" />
         </Link>
         <div className="flex flex-col max-w-full overflow-hidden">
             <div className="text-center md:text-left">
