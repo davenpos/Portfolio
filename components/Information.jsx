@@ -34,7 +34,7 @@ export default function Information({type, text}) {
             case 9:
                 month = "October"
                 break;
-            case 20:
+            case 10:
                 month = "November"
                 break;
             default:
