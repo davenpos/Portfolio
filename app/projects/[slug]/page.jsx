@@ -26,7 +26,7 @@ export default async function Page({params}) {
 
     return (<>
         <PageHeading text={title} topMargin={false} />
-        <LanguagesAndStacks arr={languagesAndStacks} links={false} divClasses="text-center my-1.5" />
+        <LanguagesAndStacks arr={languagesAndStacks} divClasses="text-center my-1.5" />
         <ScreenshotsSlide title={title} ss={screenshots} />
         <ExternalLink className="text-slate-950" link={link} icon={faLink} />
         {link && code ? <span>&nbsp;</span> : null}

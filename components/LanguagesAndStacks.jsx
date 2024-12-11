@@ -1,9 +1,11 @@
 "use client"
-import React from "react"
+import React, { useContext } from "react"
+import { LangsLinks } from './Projects'
 import useSetQueryParams from '@/hooks/useSetQueryParams'
 
-export default function LanguagesAndStacks({arr, links, divClasses}) {
+export default function LanguagesAndStacks({arr, divClasses}) {
     const setQueryParams = useSetQueryParams()
+    const links = useContext(LangsLinks)
 
     return (<div className={divClasses}>
         {arr.map((los, i) => {
