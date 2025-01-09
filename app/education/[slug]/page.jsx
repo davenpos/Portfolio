@@ -1,20 +1,13 @@
-import qs from "qs"
 import Certificate from '@/components/Certificate'
 import ClassesTable from '@/components/ClassesTable'
 import Description from '@/components/Description'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
-import getStrapi from '@/functions/getStrapi'
+import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page({params}) {
     const p = await params
-    let query = {
-        filters: { slug: p.slug },
-        sort: "start:desc"
-    }
-
-    const results = await getStrapi("educations", qs.stringify(query))
-    const currInstitute = results[0]
+    const currInstitute = await getEntryInfo('educations', p.slug, 'start:desc')
     const name = currInstitute.institute
     const degree = currInstitute.degree
     const honours = currInstitute.honours_certificate

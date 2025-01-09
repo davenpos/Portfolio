@@ -5,6 +5,7 @@ import Projects from '@/components/Projects'
 import InstitutesList from '@/components/InstitutesList'
 import ViewMore from '@/components/ViewMore'
 import getStrapi from '@/functions/getStrapi'
+import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page() {
     let query = {
@@ -19,12 +20,10 @@ export default async function Page() {
     query.sort = "start:desc"
     const latestEducation = await getStrapi("educations", qs.stringify(query), true)
 
-    query = qs.stringify({filters: { slug: "home" }})
-    const pageContents = await getStrapi("page-contents", query)
-    const currPageContent = pageContents[0]
+    const pageContent = await getEntryInfo('page-contents', 'home')
 
     return (<>
-        <Description desc={currPageContent.content} align="center" />
+        <Description desc={pageContent.content} align="center" />
         <PageHeading text="Simeon's Latest Projects:" topMargin={true} />
         <Projects projects={latestProjects.data} langsLinks={false} />
         <ViewMore length={latestProjects.meta.pagination.total} href="/projects" text="View more of Simeon's projects" />

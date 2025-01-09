@@ -1,17 +1,14 @@
-import qs from "qs"
 import Description from '@/components/Description'
 import EmailForm from '@/components/EmailForm'
 import PageHeading from '@/components/PageHeading'
-import getStrapi from '@/functions/getStrapi'
+import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page() {
-    const stringifiedQuery = qs.stringify({filters: { slug: "contact" }})
-    const pageContents = await getStrapi("page-contents", stringifiedQuery)
-    const currPageContent = pageContents[0]
+    const pageContent = await getEntryInfo('page-contents', 'contact')
 
     return (<>
         <PageHeading text="Contact Simeon" topMargin={false} />
-        <Description desc={currPageContent.content} align="left" />
+        <Description desc={pageContent.content} align="left" />
         <EmailForm />
     </>)
 }

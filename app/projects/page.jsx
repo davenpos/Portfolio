@@ -1,22 +1,18 @@
-import qs from "qs"
 import Description from '@/components/Description'
 import PageHeading from '@/components/PageHeading'
 import Pagination from '@/components/Pagination'
 import Projects from '@/components/Projects'
 import getPaginationVars from '@/functions/getPaginationVars'
-import getStrapi from '@/functions/getStrapi'
+import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page(props) {
     const numPerPage = 5
     const pagVars = await getPaginationVars(props, numPerPage, "projects", "date")
-
-    const stringifiedQuery = qs.stringify({filters: { slug: "projects" }})
-    const pageContents = await getStrapi("page-contents", stringifiedQuery)
-    const currPageContent = pageContents[0]
+    const pageContent = await getEntryInfo('page-contents', 'projects')
 
     return (<>
         <PageHeading text="Simeon's Projects" topMargin={false} />
-        <Description desc={currPageContent.content} align="center" />
+        <Description desc={pageContent.content} align="center" />
         <Projects projects={pagVars.data} langsLinks={true} />
         <Pagination pages={pagVars.numOfPages} curr={pagVars.pageNum} numPerPage={numPerPage} total={pagVars.total} />
     </>)
