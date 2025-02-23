@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import MenuLink from '@/components/MenuLink'
+import NavbarIcon from '@/components/NavbarIcon'
 import windowSizeState from '@/functions/windowSizeState'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar({menuOpen, setMenuOpen}) {
@@ -52,8 +52,8 @@ export default function Navbar({menuOpen, setMenuOpen}) {
     }, [windowSize, menuOpen, setMenuOpen])
 
     return(<>
-        <nav className={`bg-amber-600 z-30 ${windowSize === "small" ? `w-full absolute top-0 left-0 opacity-90 text-left px-3 py-2 transition duration-300 ${!menuOpen && "-translate-y-full"}` : "inline-block text-base md:text-xl py-1 text-slate-800 rounded-full cursor-default"}`} >
-            {windowSize === "small" && <FontAwesomeIcon icon={faXmark} size="lg" className="absolute right-2 top-2 visible md:invisible drop-shadow-lg cursor-pointer hover:opacity-50 transition duration-300" onClick={() => setMenuOpen(false)} />}
+        <nav className={`bg-amber-600 z-30 ${windowSize === "small" ? `w-full absolute top-0 left-0 opacity-90 text-left px-3 py-2 transition duration-300 ${!menuOpen && "-translate-y-full"}` : "inline-block text-base md:text-xl py-1 text-slate-800 rounded-full cursor-default"}`}>
+            {windowSize === "small" && <NavbarIcon icon={faXmark} open={false} setMenuOpen={setMenuOpen} />}
             {menuLinks.map((ml, i) => {
                 return (<React.Fragment key={ml.id}>
                     <MenuLink href={ml.href} name={ml.name} />
