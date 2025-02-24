@@ -1,6 +1,6 @@
 export default function Information({type, text}) {
-    if (!isNaN(new Date(text)) && text >= 10000000) {
-        const date = new Date(text)
+    const date = new Date(text)
+    if (!isNaN(date) && date > 1000000000000) {
         let month
 
         switch (date.getMonth()) {

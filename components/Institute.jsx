@@ -10,7 +10,7 @@ export default function Institute(props) {
             <Link href={`/education/${props.slug}`} className="hover:opacity-50 duration-300 font-bold text-lg md:text-xl text-center md:text-left">
                 {props.name}
             </Link>&nbsp;<span className="text-xs md:text-sm">({props.start}-{props.end})</span>
-            {props.degree !== "none" ? <p className="text-sm md:text-base">{props.degree}</p> : null}
+            {props.degree !== "none" && <p className="text-sm md:text-base">{props.degree}</p>}
             <Information type="GPA" text={props.gpa} />
         </div>
     </div>)

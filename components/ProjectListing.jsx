@@ -2,10 +2,10 @@
 import { Suspense } from "react"
 import Link from 'next/link'
 import LanguagesAndStacks from '@/components/LanguagesAndStacks'
+import getExcerpt from '@/functions/getExcerpt'
 
 export default function ProjectListing(props) {
-    const descArray = props.desc.split(' ')
-    const excerpt = descArray.length < 70 ? props.desc : descArray.slice(0, 70).join(' ') + "..."
+    const excerpt = getExcerpt(props.desc, 70)
 
     return (<div className="flex flex-col md:flex-row md:gap-3 my-3">
         <Link href={`/projects/${props.slug}`} className="overflow-hidden flex-shrink-0 w-[350px] m-auto">

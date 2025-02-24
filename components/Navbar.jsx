@@ -26,11 +26,11 @@ export default function Navbar({menuOpen, setMenuOpen}) {
             name: "Education",
             href: "/education"
         },
-        /*{
+        {
             id: 5,
             name: "Certificates",
             href: "/certificates"
-        },*/
+        },
         {
             id: 6,
             name: "Contact",
