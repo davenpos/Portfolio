@@ -7,7 +7,7 @@ import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page({params}) {
     const p = await params
-    const currInstitute = await getEntryInfo('educations', p.slug, 'start:desc')
+    const currInstitute = await getEntryInfo('educations', p.slug)
     const name = currInstitute.institute
     const degree = currInstitute.degree
     const honours = currInstitute.honours_certificate

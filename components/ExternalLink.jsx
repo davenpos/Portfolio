@@ -7,8 +7,8 @@ export default function ExternalLink({link, icon}) {
     const iconSize = windowSizeState("lg", "2x")
 
     return (<>
-        {link ? <Link href={link} className="hover:opacity-50 cursor-pointer duration-300" target="_blank">
+        {link && <Link href={link} className="hover:opacity-50 cursor-pointer duration-300" target="_blank">
             <FontAwesomeIcon icon={icon} size={iconSize} />
-        </Link> : null}
+        </Link>}
     </>)
 }

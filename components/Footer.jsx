@@ -48,7 +48,7 @@ export default function Footer() {
         <p>
             {links.map((link, i) => (<React.Fragment key={link.link}>
                 <ExternalLink link={link.link} icon={link.icon} />
-                {i + 1 < links.length ? <>&nbsp;&nbsp;</> : null}
+                {i + 1 < links.length && <>&nbsp;&nbsp;</>}
             </React.Fragment>))}
         </p>
         <p className="text-sm">&copy; {new Date().getFullYear()}</p>

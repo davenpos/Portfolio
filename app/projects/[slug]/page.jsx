@@ -10,7 +10,7 @@ import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page({params}) {
     const p = await params
-    const currProject = await getEntryInfo('projects', p.slug, 'date:desc')
+    const currProject = await getEntryInfo('projects', p.slug)
     const title = currProject.title
     const languagesAndStacks = currProject.languages_stacks
     const screenshots = currProject.screenshot
@@ -22,7 +22,7 @@ export default async function Page({params}) {
         <LanguagesAndStacks arr={languagesAndStacks} divClasses="text-center my-1.5" />
         <ScreenshotsSlide title={title} ss={screenshots} />
         <ExternalLink className="text-slate-950" link={link} icon={faLink} />
-        {link && code ? <span>&nbsp;</span> : null}
+        {link && code && <span>&nbsp;</span>}
         <ExternalLink className="text-slate-950" link={code} icon={faGithub} />
         <Information type="Original date completed" text={currProject.date} />
         <br />

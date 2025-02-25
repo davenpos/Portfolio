@@ -26,7 +26,7 @@ export default function LanguagesAndStacks({arr, divClasses}) {
                     :
                     <span className="bg-black text-white rounded-full p-1 font-mono cursor-default">{los.name}</span>
                 }
-                {i < arr.length - 1 ? <span className="cursor-default">&nbsp;</span> : null}
+                {i < arr.length - 1 && <span className="cursor-default">&nbsp;</span>}
             </React.Fragment>)
         })}
     </div>)

@@ -104,7 +104,7 @@ export default function ClassesTable({classes}) {
                     }
 
                     return (<React.Fragment key={`${semName}-${i}`}>
-                        {onlySemInRow && i === 0 ? <TableRow cells={onlySemCell} /> : null}
+                        {onlySemInRow && i === 0 && <TableRow cells={onlySemCell} />}
                         <TableRow cells={courseInfo} />
                     </React.Fragment>)
                 }))}

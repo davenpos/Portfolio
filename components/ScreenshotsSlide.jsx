@@ -15,12 +15,12 @@ export default function ScreenshotsSlide({title, ss}) {
                     <img id={`screenshot${i}`} key={curr.id} src={curr.formats.large.url} alt={`Screenshot ${i + 1} of ${title}`} className="w-full inline" />
                 ))}
             </div>
-            {ss.length > 1 ? <>
+            {ss.length > 1 && <>
                 <div className="glide__arrows grid" data-glide-el="controls">
                     <Arrow dir="left" />
                     <Arrow dir="right" />
                 </div>
-            </> : null}
+            </>}
         </div>
     </div>)
 }
