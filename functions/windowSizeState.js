@@ -5,7 +5,7 @@ export default function windowSizeState(small, med) {
 
     useEffect(() => {
         function updateValue() {
-            if (window.innerWidth > 768) setValue(med)
+            if (window.innerWidth >= 768) setValue(med)
             else setValue(small)
         }
 
