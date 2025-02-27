@@ -1,1 +1,0 @@
-type StrapiAPIInfo = StrapiEntry[] | StrapiAPI

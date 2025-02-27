@@ -1,5 +1,5 @@
 interface StrapiAPI {
-    data: StrapiEntry[],
+    data: StrapiEntry[]
     meta?: {
         pagination: {
             page: number
