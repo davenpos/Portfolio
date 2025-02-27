@@ -2,9 +2,9 @@
 import { createContext } from "react"
 import ProjectListing from '@/components/ProjectListing'
 
-export const LangsLinks = createContext()
+export const LangsLinks = createContext<boolean>(true)
 
-export default function Projects({projects, langsLinks}) {
+export default function Projects({projects, langsLinks}: {projects: StrapiEntry[], langsLinks: boolean}) {
     return (<LangsLinks.Provider value={langsLinks}>
         <div>
             {projects.map(p => {

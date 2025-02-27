@@ -4,7 +4,7 @@ import Circle from '@/components/Circle'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-export default function Layout({children}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname()
 
     return (<>
