@@ -1,0 +1,1 @@
+type HrefPageSlug = string & { __brand: "HrefPageSlug" }

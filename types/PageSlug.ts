@@ -1,1 +1,3 @@
-type PageSlug = "about" | "certificates" | "contact" | "education" | "home" | "projects"
+export const pageSlugs = ["about", "certificates", "contact", "education", "home", "projects", "resume"]
+
+export type PageSlug = (typeof pageSlugs)[number]

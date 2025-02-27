@@ -1,6 +1,6 @@
 interface StrapiAPI {
     data: StrapiEntry[]
-    meta?: {
+    meta: {
         pagination: {
             page: number
             pageSize: number
