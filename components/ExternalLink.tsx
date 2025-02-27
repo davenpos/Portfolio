@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons"
 import windowSizeState from '@/functions/windowSizeState'
 
-export default function ExternalLink({link, icon}: {link: FooterLinkHref, icon: IconDefinition}) {
+export default function ExternalLink({link, icon}: {link: LinkHref, icon: IconDefinition}) {
     const iconSize = windowSizeState("lg", "2x") as FontAwesomeSize
 
     return (<>

@@ -1,0 +1,1 @@
+type LinkHref = URL | `${'mailto:' | 'tel:'}${string}` | HrefPageSlug

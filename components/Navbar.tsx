@@ -1,42 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Dispatch, SetStateAction } from 'react'
 import MenuLink from '@/components/MenuLink'
 import NavbarIcon from '@/components/NavbarIcon'
+import createHrefPageSlug from '@/functions/createHrefPageSlug'
 import windowSizeState from '@/functions/windowSizeState'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-export default function Navbar({menuOpen, setMenuOpen}) {
-    const menuLinks = [
-        {
-            id: 1,
-            name: "Home",
-            href: "/"
-        },
-        {
-            id: 2,
-            name: "About",
-            href: "/about"
-        },
-        {
-            id: 3,
-            name: "Projects",
-            href: "/projects"
-        },
-        {
-            id: 4,
-            name: "Education",
-            href: "/education"
-        },
-        {
-            id: 5,
-            name: "Certificates",
-            href: "/certificates"
-        },
-        {
-            id: 6,
-            name: "Contact",
-            href: "/contact"
-        }
-    ]
+export default function Navbar({menuOpen, setMenuOpen}: {menuOpen: boolean, setMenuOpen: Dispatch<SetStateAction<boolean>>}) {
+    const menuNames = ["Home", "About", "Projects", "Education", "Certificates", "Contact"]
+    const menuLinks: NavbarLink[] = []
+
+    menuNames.forEach((curr, i) => {
+        const hrefVal = curr === "Home" ? "/" : createHrefPageSlug("/" + curr.toLowerCase())
+
+        menuLinks.push({
+            id: i + 1,
+            name: curr,
+            href: hrefVal
+        })
+    })
 
     const windowSize = windowSizeState("small", "large")
 

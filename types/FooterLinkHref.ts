@@ -1,1 +1,0 @@
-type FooterLinkHref = URL | `${'mailto:' | 'tel:'}${string}` | HrefPageSlug
