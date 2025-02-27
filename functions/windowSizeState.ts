@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export default function windowSizeState(small, med) {
+export default function windowSizeState(small: string, med: string) {
     const [value, setValue] = useState(small)
 
     useEffect(() => {
