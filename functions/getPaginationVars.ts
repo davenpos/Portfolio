@@ -1,12 +1,12 @@
 import qs from "qs"
 import getStrapi from '@/functions/getStrapi'
 
-export default async function getPaginationVars(props, numPerPage, slug, field) {
+export default async function getPaginationVars(props: PageProps, numPerPage: number, slug: CollectionTypeSlug, field: string) {
     const searchParams = await props.searchParams
     const pageNum = searchParams.page ? parseInt(searchParams.page) : 1
     const start = (pageNum - 1) * numPerPage
 
-    let query = {
+    let query: PaginationQuery = {
         sort: `${field}:desc`,
         pagination: {
             start: start,
@@ -28,10 +28,12 @@ export default async function getPaginationVars(props, numPerPage, slug, field) 
     const results = await getStrapi(slug, qs.stringify(query), true)
     const total = results.meta.pagination.total
 
-    return {
+    const pagInfo: StrapiPaginationInfo = {
         data: results.data,
         numOfPages: Math.ceil(total / numPerPage),
         pageNum: pageNum,
         total: total
     }
+
+    return pagInfo
 }
