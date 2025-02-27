@@ -1,0 +1,1 @@
+type CircleColor = "red" | "blue"
