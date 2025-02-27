@@ -1,0 +1,1 @@
+type PageSlug = "about" | "certificates" | "contact" | "education" | "home" | "projects"

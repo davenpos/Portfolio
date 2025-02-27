@@ -1,0 +1,1 @@
+type CollectionTypeSlug = "certificates" | "educations" | "languages-stacks" | "page-contents" | "projects"

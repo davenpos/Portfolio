@@ -15,7 +15,7 @@ export default async function Page() {
             limit: 3
         }
     }
-    const latestProjects: StrapiAPI = await getStrapi("projects", qs.stringify(query), true)
+    const latestProjects = await getStrapi("projects", qs.stringify(query), true)
 
     query.sort = "start:desc"
     const latestEducation: StrapiAPI = await getStrapi("educations", qs.stringify(query), true)
