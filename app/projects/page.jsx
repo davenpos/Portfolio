@@ -5,9 +5,9 @@ import Projects from '@/components/Projects'
 import getPaginationVars from '@/functions/getPaginationVars'
 import getEntryInfo from '@/functions/getEntryInfo'
 
-export default async function Page({searchParams}: PageProps) {
-    const numPerPage = 2
-    const pagVars = await getPaginationVars({searchParams}, numPerPage, "projects", "date")
+export default async function Page(props) {
+    const numPerPage = 5
+    const pagVars = await getPaginationVars(props, numPerPage, "projects", "date")
     const pageContent = await getEntryInfo('page-contents', 'projects')
 
     return (<>

@@ -1,0 +1,1 @@
+type Test = Record<string, string | string[] | undefined>
