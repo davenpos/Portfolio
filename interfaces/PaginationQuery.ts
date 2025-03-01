@@ -7,7 +7,7 @@ interface PaginationQuery {
     filters?: {
         languages_stacks: {
             slug: {
-                $in: string
+                $in: string[]
             }
         }
     }
