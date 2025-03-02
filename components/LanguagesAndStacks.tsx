@@ -3,7 +3,7 @@ import React, { useContext } from "react"
 import { LangsLinks } from './Projects'
 import useSetQueryParams from '@/hooks/useSetQueryParams'
 
-export default function LanguagesAndStacks({arr, divClasses}) {
+export default function LanguagesAndStacks({arr, divClasses}: {arr: LASProps[], divClasses: string}) {
     const setQueryParams = useSetQueryParams()
     const links = useContext(LangsLinks)
 

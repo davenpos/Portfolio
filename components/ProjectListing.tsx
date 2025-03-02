@@ -4,7 +4,7 @@ import Link from 'next/link'
 import LanguagesAndStacks from '@/components/LanguagesAndStacks'
 import getExcerpt from '@/functions/getExcerpt'
 
-export default function ProjectListing(props) {
+export default function ProjectListing(props: ProjectProps) {
     const excerpt = getExcerpt(props.desc, 70)
 
     return (<div className="flex flex-col md:flex-row md:gap-3 my-3">
