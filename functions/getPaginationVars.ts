@@ -1,7 +1,12 @@
 import qs from "qs"
 import getStrapi from '@/functions/getStrapi'
 
-export default async function getPaginationVars(sp: SearchParams, numPerPage: number, slug: CollectionTypeSlug, field: string) {
+export default async function getPaginationVars<T extends StrapiEntry>(
+    sp: SearchParams,
+    numPerPage: number,
+    slug: CollectionTypeSlug,
+    field: string
+) {
     const searchParams = await sp
     const pageNum = searchParams.page ? parseInt(searchParams.page as string) : 1
     const start = (pageNum - 1) * numPerPage
@@ -26,7 +31,7 @@ export default async function getPaginationVars(sp: SearchParams, numPerPage: nu
         }
     }
 
-    const results = await getStrapi(slug, qs.stringify(query), true)
+    const results = await getStrapi<T>(slug, qs.stringify(query), true)
     const total = results.meta.pagination.total
 
     return {

@@ -1,10 +1,4 @@
-interface Image extends Pick<
-    StrapiEntry,
-    "id" | "documentId" | "createdAt" | "updatedAt" | "publishedAt"
->, Omit<
-    ImageFormat,
-    "path" | "sizeInBytes"
-> {
+interface Image extends StrapiEntry, Omit<ImageFormat, "path" | "sizeInBytes"> {
     alternativeText: string | null
     caption: string | null
     formats: {

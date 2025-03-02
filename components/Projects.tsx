@@ -5,7 +5,7 @@ import createValidURL from '@/functions/createValidURL'
 
 export const LangsLinks = createContext<boolean>(true)
 
-export default function Projects({projects, langsLinks}: {projects: StrapiEntry[], langsLinks: boolean}) {
+export default function Projects({projects, langsLinks}: {projects: Project[], langsLinks: boolean}) {
     return (<LangsLinks.Provider value={langsLinks}>
         <div>
             {projects.map(p => {

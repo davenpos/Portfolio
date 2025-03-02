@@ -16,10 +16,10 @@ export default async function Page() {
             limit: 3
         }
     }
-    const latestProjects = await getStrapi("projects", qs.stringify(query), true)
+    const latestProjects = await getStrapi<Project>("projects", qs.stringify(query), true)
 
     query.sort = "start:desc"
-    const latestEducation = await getStrapi("educations", qs.stringify(query), true)
+    const latestEducation = await getStrapi<Institute>("educations", qs.stringify(query), true)
 
     const pageContent = await getEntryInfo('page-contents', 'home')
 
