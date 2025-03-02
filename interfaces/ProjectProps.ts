@@ -1,8 +1,9 @@
-interface ProjectProps {
+interface ProjectProps extends Pick<Project,
+    "title" |
+    "slug"
+> {
     key: StrapiEntry["id"]
-    title: string
-    desc: string
-    slug: string
-    img: ValidURL
-    las: LanguagesAndStacks[]
+    desc: Project["description"]
+    img: ImageFormat["url"]
+    las: Project["languages_stacks"]
 }

@@ -4,14 +4,17 @@ import Description from '@/components/Description'
 import Information from '@/components/Information'
 import PageHeading from '@/components/PageHeading'
 import getEntryInfo from '@/functions/getEntryInfo'
+import createValidURL from '@/functions/createValidURL'
 
-export default async function Page({params}) {
+export default async function Page({params}: {params: PageParams}) {
     const p = await params
-    const currInstitute = await getEntryInfo('educations', p.slug)
+    const currInstitute = await getEntryInfo<Institute>('educations', p.slug)
     const name = currInstitute.institute
     const degree = currInstitute.degree
     const honours = currInstitute.honours_certificate
     const diploma = currInstitute.diploma
+    const honoursSRC = createValidURL(honours ? (honours?.formats.small?.url || honours?.formats.thumbnail.url) : "")
+    const diplomaSRC = createValidURL(diploma ? (diploma?.formats.small?.url || diploma?.formats.thumbnail.url) : "")
 
     return (<>
         <PageHeading text={name} topMargin={false} />
@@ -26,8 +29,8 @@ export default async function Page({params}) {
         <ClassesTable classes={currInstitute.classes} />
         {(honours || diploma) && <>
             <div className={`${honours && diploma ? "md:grid md:grid-cols-2 md:place-items-center" : ""}`}>
-                <SchoolCertificate type="Diploma" src={currInstitute.diploma?.formats.small.url} school={name} exists={diploma} />
-                <SchoolCertificate type="Honours" src={currInstitute.honours_certificate?.formats.small.url} school={name} exists={honours} />
+                <SchoolCertificate type="Diploma" src={honoursSRC} school={name} exists={diploma} />
+                <SchoolCertificate type="Honours" src={diplomaSRC} school={name} exists={honours} />
             </div>
         </>}
     </>)

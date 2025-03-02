@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Information from '@/components/Information'
 
-export default function Institute(props) {
+export default function Institute(props: InstituteProps) {
     return (<div className="grid grid-cols-[20%_1fr] md:grid-cols-[8.333333%_1fr] gap-3 my-3">
         <Link href={`/education/${props.slug}`} className="overflow-hidden">
             <img src={props.logo} className="rounded-full hover:opacity-70 duration-300" />

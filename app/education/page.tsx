@@ -5,10 +5,10 @@ import InstitutesList from '@/components/InstitutesList'
 import getPaginationVars from '@/functions/getPaginationVars'
 import getEntryInfo from '@/functions/getEntryInfo'
 
-export default async function Page({searchParams}) {
+export default async function Page({searchParams}: {searchParams: SearchParams}) {
     const numPerPage = 8
-    const pagVars = await getPaginationVars(searchParams, numPerPage, "educations", "start")
-    const pageContent = await getEntryInfo('page-contents', 'education')
+    const pagVars = await getPaginationVars<Institute>(searchParams, numPerPage, "educations", "start")
+    const pageContent = await getEntryInfo<PageContent>('page-contents', 'education')
 
     return (<>
         <PageHeading text="Simeon's Education" topMargin={false} />
