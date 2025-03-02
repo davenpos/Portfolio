@@ -1,10 +1,11 @@
 "use client"
+import { ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import Circle from '@/components/Circle'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
     const pathname = usePathname()
 
     return (<>
