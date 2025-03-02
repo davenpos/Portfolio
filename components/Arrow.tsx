@@ -1,4 +1,4 @@
-export default function Arrow({dir}) {
+export default function Arrow({dir}: {dir: ArrowDirection}) {
     const arrow = dir === "left" ? "\u276e" : "\u276f"
     const id = (dir === "left" ? "prev" : "next") + "Arrow"
 

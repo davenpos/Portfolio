@@ -12,11 +12,11 @@ import createValidURL from '@/functions/createValidURL'
 export default async function Page({params}: {params: PageParams}) {
     const p = await params
     const currProject = await getEntryInfo('projects', p.slug)
-    const title = currProject.title
-    const languagesAndStacks = currProject.languages_stacks
-    const screenshots = currProject.screenshot
+    const title: string = currProject.title
+    const languagesAndStacks: LASProps[] = currProject.languages_stacks
     const link = createValidURL(currProject.link)
     const code = createValidURL(currProject.code)
+    const screenshots: Image[] = currProject.screenshot
 
     return (<>
         <PageHeading text={title} topMargin={false} />

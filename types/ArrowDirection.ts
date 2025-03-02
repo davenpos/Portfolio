@@ -1,0 +1,1 @@
+type ArrowDirection = "left" | "right"
