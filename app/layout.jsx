@@ -14,7 +14,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href={favicon.src} sizes="any" />
       </head>
-      <Layout children={children} />
+      <Layout>
+        {children}
+      </Layout>
     </html>
   )
 }
