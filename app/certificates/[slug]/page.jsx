@@ -2,6 +2,7 @@ import PageHeading from '@/components/PageHeading'
 import Description from '@/components/Description'
 import ExternalLink from '@/components/ExternalLink'
 import Information from '@/components/Information'
+import createValidURL from '@/functions/createValidURL'
 import getEntryInfo from '@/functions/getEntryInfo'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,7 +12,7 @@ export default async function Page({params}) {
     const name = currProject.name
     const instructor = currProject?.instructor
     const completed = currProject.completed
-    const link = currProject?.link
+    const link = createValidURL(currProject?.link)
     const desc = currProject.description
     const picture = currProject.picture.formats.medium.url
 

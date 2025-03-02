@@ -1,0 +1,1 @@
+type PageParams = Promise<{ slug: string }>

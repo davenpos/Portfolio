@@ -1,1 +1,1 @@
-type LinkHref = URL | `${'mailto:' | 'tel:'}${string}` | HrefPageSlug
+type LinkHref = ValidURL | `${'mailto:' | 'tel:'}${string}` | HrefPageSlug

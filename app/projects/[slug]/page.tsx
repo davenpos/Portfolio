@@ -7,15 +7,16 @@ import LanguagesAndStacks from '@/components/LanguagesAndStacks'
 import PageHeading from '@/components/PageHeading'
 import ScreenshotsSlide from '@/components/ScreenshotsSlide'
 import getEntryInfo from '@/functions/getEntryInfo'
+import createValidURL from '@/functions/createValidURL'
 
-export default async function Page({params}) {
+export default async function Page({params}: {params: PageParams}) {
     const p = await params
     const currProject = await getEntryInfo('projects', p.slug)
     const title = currProject.title
     const languagesAndStacks = currProject.languages_stacks
     const screenshots = currProject.screenshot
-    const link = currProject.link
-    const code = currProject.code
+    const link = createValidURL(currProject.link)
+    const code = createValidURL(currProject.code)
 
     return (<>
         <PageHeading text={title} topMargin={false} />

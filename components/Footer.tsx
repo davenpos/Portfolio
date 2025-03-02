@@ -5,6 +5,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
 import type { FooterLink } from "@/interfaces/FooterLink"
 import createHrefPageSlug from '@/functions/createHrefPageSlug'
+import createValidURL from '@/functions/createValidURL'
 
 export default function Footer() {
     const resumePage = createHrefPageSlug("/resume")
@@ -12,32 +13,32 @@ export default function Footer() {
     const links: FooterLink[] = [
         {
             id: 1,
-            link: new URL("https://www.linkedin.com/in/simeon-davenport/"),
+            link: createValidURL("https://www.linkedin.com/in/simeon-davenport/"),
             icon: faLinkedin
         },
         {
             id: 2,
-            link: new URL("https://github.com/davenpos"),
+            link: createValidURL("https://github.com/davenpos"),
             icon: faGithub
         },
         {
             id: 3,
-            link: new URL("https://bsky.app/profile/snorbertd.bsky.social"),
+            link: createValidURL("https://bsky.app/profile/snorbertd.bsky.social"),
             icon: faBluesky
         },
         {
             id: 4,
-            link: new URL("https://www.instagram.com/snorbertd/"),
+            link: createValidURL("https://www.instagram.com/snorbertd/"),
             icon: faInstagram
         },
         {
             id: 5,
-            link: new URL("https://discordapp.com/invite/U6bkBgy"),
+            link: createValidURL("https://discordapp.com/invite/U6bkBgy"),
             icon: faDiscord
         },
         {
             id: 6,
-            link: new URL("https://www.youtube.com/@NorbertSD"),
+            link: createValidURL("https://www.youtube.com/@NorbertSD"),
             icon: faYoutube
         },
         {

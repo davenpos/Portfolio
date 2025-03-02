@@ -1,0 +1,1 @@
+type ValidURL = string & { __brand: "ValidURL" }
