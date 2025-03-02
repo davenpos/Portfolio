@@ -8,13 +8,12 @@ import getEntryInfo from '@/functions/getEntryInfo'
 export default async function Page({searchParams}: {searchParams: SearchParams}) {
     const numPerPage = 5
     const pagVars = await getPaginationVars<Project>(searchParams, numPerPage, "projects", "date")
-    const projects = pagVars.data
-    const pageContent = await getEntryInfo('page-contents', 'projects')
+    const pageContent = await getEntryInfo<PageContent>('page-contents', 'projects')
 
     return (<>
         <PageHeading text="Simeon's Projects" topMargin={false} />
         <Description desc={pageContent.content} align="center" />
-        <Projects projects={projects} langsLinks={true} />
+        <Projects projects={pagVars.data} langsLinks={true} />
         <Pagination pages={pagVars.numOfPages} curr={pagVars.pageNum} numPerPage={numPerPage} total={pagVars.total} />
     </>)
 }

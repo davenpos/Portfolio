@@ -21,7 +21,7 @@ export default async function Page() {
     query.sort = "start:desc"
     const latestEducation = await getStrapi<Institute>("educations", qs.stringify(query), true)
 
-    const pageContent = await getEntryInfo('page-contents', 'home')
+    const pageContent = await getEntryInfo<PageContent>('page-contents', 'home')
 
     return (<>
         <Description desc={pageContent.content} align="center" />

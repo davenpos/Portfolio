@@ -4,5 +4,5 @@ interface ProjectProps {
     desc: string
     slug: string
     img: ValidURL
-    las: LASProps[]
+    las: LanguagesAndStacks[]
 }

@@ -4,7 +4,7 @@ import getEntryInfo from '@/functions/getEntryInfo'
 import imgSrc from '@/assets/SD.jpg'
 
 export default async function Page() {
-    const pageContent = await getEntryInfo('page-contents', 'about')
+    const pageContent = await getEntryInfo<PageContent>('page-contents', 'about')
 
     return (<>
         <PageHeading text="About Simeon" topMargin={false} />
