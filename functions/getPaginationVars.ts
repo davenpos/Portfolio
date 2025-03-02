@@ -3,7 +3,7 @@ import getStrapi from '@/functions/getStrapi'
 
 export default async function getPaginationVars(sp: SearchParams, numPerPage: number, slug: CollectionTypeSlug, field: string) {
     const searchParams = await sp
-    const pageNum = Array.isArray(searchParams.page) ? parseInt(searchParams.page[0]) : parseInt(searchParams.page || '1')
+    const pageNum = searchParams.page ? parseInt(searchParams.page as string) : 1
     const start = (pageNum - 1) * numPerPage
 
     let query: PaginationQuery = {
@@ -14,9 +14,7 @@ export default async function getPaginationVars(sp: SearchParams, numPerPage: nu
         }
     }
 
-    const los = searchParams.langOrStack ?
-        Array.isArray(searchParams.langOrStack) ? searchParams.langOrStack : [searchParams.langOrStack] 
-    : undefined
+    const los = [searchParams.langOrStack] as string[]
 
     if (los) {
         query.filters = {

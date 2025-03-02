@@ -6,7 +6,7 @@ import getPaginationVars from '@/functions/getPaginationVars'
 import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page({searchParams}: {searchParams: SearchParams}) {
-    const numPerPage = 2
+    const numPerPage = 5
     const pagVars = await getPaginationVars(searchParams, numPerPage, "projects", "date")
     const pageContent = await getEntryInfo('page-contents', 'projects')
 
