@@ -1,0 +1,1 @@
+type CellSpan = "1" | "2"

@@ -4,14 +4,7 @@ interface Institute extends StrapiEntry {
     end: number
     gpa: number
     description: string
-    classes: {
-        semester: string
-        classes: {
-            courseCode: string
-            courseTitle: string
-            grade: number
-        }[]
-    }[]
+    classes: Semester[]
     degree: string
     logo: Image
     honours_certificate: Image | null

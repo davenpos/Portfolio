@@ -3,12 +3,12 @@ import React from "react"
 import TableRow from '@/components/TableRow'
 import windowSizeState from '@/functions/windowSizeState'
 
-export default function ClassesTable({classes}) {
+export default function ClassesTable({classes}: {classes: Semester[]}) {
     let onlySemInRow = false
     const courseCodeText = windowSizeState("Code:", "Course Code:")
     const courseTitleText = windowSizeState("Title:", "Course Title:")
 
-    const headRow1 = [
+    const headRow1: TableCell[] = [
         {
             td: false,
             colspan: "2",
@@ -29,7 +29,7 @@ export default function ClassesTable({classes}) {
         }
     ]
 
-    const headRow2 = [
+    const headRow2: TableCell[] = [
         {
             td: false,
             colspan: "1",
@@ -58,38 +58,40 @@ export default function ClassesTable({classes}) {
                 return (sem.classes.map((curr, i) => {
                     if (i > 0 && onlySemInRow) onlySemInRow = false
                     let semSpan = curr.semesterSpan
+                    let semSpanString
+                    let rowSpanString = numOfClasses.toString() as CellSpan
 
                     if (semSpan) {
-                        semSpan = semSpan.toString()
+                        semSpanString = semSpan.toString() as CellSpan
                         onlySemInRow = true
                     }
 
-                    const onlySemCell = [
+                    const onlySemCell: TableCell[] = [
                         {
                             td: true,
                             colspan: "1",
-                            rowspan: numOfClasses.toString(),
+                            rowspan: rowSpanString,
                             content: semName
                         }
                     ]
 
-                    const courseInfo = [
+                    const courseInfo: TableCell[] = [
                         {
                             td: true,
                             colspan: "1",
-                            rowspan: semSpan ? semSpan : "1",
+                            rowspan: semSpanString || "1",
                             content: curr.courseCode
                         },
                         {
                             td: true,
                             colspan: "1",
-                            rowspan: semSpan ? semSpan : "1",
+                            rowspan: semSpanString || "1",
                             content: curr.courseTitle
                         },
                         {
                             td: true,
                             colspan: "1",
-                            rowspan: semSpan ? semSpan : "1",
+                            rowspan: semSpanString || "1",
                             content: curr.grade ? curr.grade : "N/A"
                         }
                     ]
@@ -98,7 +100,7 @@ export default function ClassesTable({classes}) {
                         courseInfo.push({
                             td: true,
                             colspan: "1",
-                            rowspan: numOfClasses,
+                            rowspan: rowSpanString,
                             content: semName
                         })
                     }
