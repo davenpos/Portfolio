@@ -1,10 +1,14 @@
 "use client"
 import Link from 'next/link'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons"
 import windowSizeState from '@/functions/windowSizeState'
-import type { ExternalLinkProps } from "@/interfaces/ExternalLinkProps"
 
-export default function ExternalLink({link, icon}: ExternalLinkProps) {
+export default function ExternalLink({link, icon}: {
+    className?: string
+    link: LinkHref
+    icon: IconDefinition
+}) {
     const iconSize = windowSizeState("lg", "2x") as FontAwesomeSize
 
     return (<>

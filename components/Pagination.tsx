@@ -2,7 +2,12 @@
 import React from "react"
 import useSetQueryParams from '@/hooks/useSetQueryParams'
 
-export default function Pagination({pages, curr, numPerPage, total}: {pages: number, curr: number, numPerPage: number, total: number}) {
+export default function Pagination({pages, curr, numPerPage, total}: {
+    pages: number,
+    curr: number, 
+    numPerPage: number,
+    total: number
+}) {
     const setQueryParams = useSetQueryParams()
     const pageNums = []
 

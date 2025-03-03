@@ -1,4 +1,7 @@
-export default function Information({type, text}: {type: string, text: string | number | Date}) {
+export default function Information({type, text}: {
+    type: string,
+    text: string | number | Date
+}) {
     let displayText = text.toString()
 
     if (text instanceof Date || (typeof text === "number" && text > 1000000000000) || 

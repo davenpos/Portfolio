@@ -4,11 +4,14 @@ import Glide from '@glidejs/glide'
 import Arrow from '@/components/Arrow'
 import createValidURL from '@/functions/createValidURL'
 
-export default function ScreenshotsSlide({title, ss}: {title: string, ss: Image[]}) {
+export default function ScreenshotsSlide({title, ss}: {
+    title: string,
+    ss: Image[]
+}) {
     useEffect(() => {
         new Glide("#screenshots").mount()
     }, [])
-
+    
     return (<div id="screenshots" className="overflow-hidden relative group md:mb-2">
         <div className="glide__track" data-glide-el="track">
             <div className="glide__slides">

@@ -1,6 +1,9 @@
 import React from "react"
 
-export default function Description({desc, align}: {desc: string, align: TextAlign}) {
+export default function Description({desc, align}: {
+    desc: string,
+    align: TextAlign
+}) {
     const paragraphs = desc.split("\n")
 
     return (<>

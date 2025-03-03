@@ -2,7 +2,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-export default function MenuLink({href, name}: {href: "/" | HrefPageSlug, name: string}) {
+export default function MenuLink({href, name}: {
+    href: "/" | HrefPageSlug,
+    name: string
+}) {
     const pathname = usePathname()
     const currPage = pathname === href || (pathname.startsWith(href) && href != "/")
 

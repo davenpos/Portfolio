@@ -5,7 +5,10 @@ import createHrefPageSlug from '@/functions/createHrefPageSlug'
 import windowSizeState from '@/functions/windowSizeState'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-export default function Navbar({menuOpen, setMenuOpen}: {menuOpen: boolean, setMenuOpen: Dispatch<SetStateAction<boolean>>}) {
+export default function Navbar({menuOpen, setMenuOpen}: {
+    menuOpen: boolean,
+    setMenuOpen: Dispatch<SetStateAction<boolean>>
+}) {
     const menuNames = ["Home", "About", "Projects", "Education", "Certificates", "Contact"]
     const menuLinks: NavbarLink[] = []
 

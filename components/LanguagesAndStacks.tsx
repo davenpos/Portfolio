@@ -3,13 +3,16 @@ import React, { useContext } from "react"
 import { LangsLinks } from './Projects'
 import useSetQueryParams from '@/hooks/useSetQueryParams'
 
-export default function LanguagesAndStacks({arr, divClasses}: {arr: LanguagesAndStacks[], divClasses: string}) {
+export default function LanguagesAndStacks({arr, divClasses}: {
+    arr: LanguagesAndStacks[],
+    divClasses: string
+}) {
     const setQueryParams = useSetQueryParams()
     const links = useContext(LangsLinks)
 
     return (<div className={divClasses}>
         {arr.map((los, i) => {
-            const params = [
+            const params: QueryVar[] = [
                 {
                     queryVar: 'langOrStack',
                     val: los.slug

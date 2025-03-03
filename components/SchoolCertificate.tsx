@@ -1,4 +1,9 @@
-export default function SchoolCertificate({type, src, school, exists}) {
+export default function SchoolCertificate({type, src, school, exists}: {
+    type: "Diploma" | "Honours"
+    src: ValidURL
+    school: string
+    exists: Image | null
+}) {
     const altDesc = type === "Diploma" ? "diploma" : "Honour's certificate"
 
     return (<>
