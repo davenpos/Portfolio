@@ -14,7 +14,8 @@ export default async function Page({params}: {params: PageParams}) {
     const completed = currProject.completed
     const link = createValidURL(currProject?.link)
     const desc = currProject.description
-    const picture = createValidURL(currProject.picture.formats.medium?.url || currProject.picture.formats.small?.url || currProject.picture.formats.thumbnail.url)
+    const picFormats = currProject.picture.formats
+    const picture = createValidURL(picFormats.medium?.url || picFormats.small?.url || picFormats.thumbnail.url)
 
     return (<>
         <PageHeading text={name} topMargin={false} />

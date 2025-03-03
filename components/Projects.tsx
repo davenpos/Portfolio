@@ -10,7 +10,8 @@ export default function Projects({projects, langsLinks}: {projects: Project[], l
         <div>
             {projects.map(p => {
                 const screenshot: Image = p.screenshot[0]
-                const imgSRC = createValidURL(screenshot.formats.medium?.url || screenshot.formats.small?.url || screenshot.formats.thumbnail.url)
+                const imgFormats = screenshot.formats
+                const imgSRC = createValidURL(imgFormats.medium?.url || imgFormats.small?.url || imgFormats.thumbnail.url)
 
                 return <ProjectListing key={p.id} title={p.title} desc={p.description} slug={p.slug} img={imgSRC} las={p.languages_stacks} />
             })}

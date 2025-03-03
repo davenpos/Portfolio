@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Information from '@/components/Information'
 import getExcerpt from '@/functions/getExcerpt'
 
-export default function Certificate(props) {
+export default function Certificate(props: CertificateProps) {
     const excerpt = getExcerpt(props.desc, 100)
 
     return (<div className="flex flex-col md:flex-row md:gap-3 my-3">

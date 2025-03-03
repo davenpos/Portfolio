@@ -16,7 +16,8 @@ export default function ScreenshotsSlide({title, ss}: {
         <div className="glide__track" data-glide-el="track">
             <div className="glide__slides">
                 {ss.map((curr, i) => {
-                    const imageSRC = createValidURL(curr.formats.large?.url || curr.formats.medium?.url || curr.formats.small?.url || curr.formats.thumbnail.url)
+                    const imageFormats = curr.formats
+                    const imageSRC = createValidURL(imageFormats.large?.url || imageFormats.medium?.url || imageFormats.small?.url || imageFormats.thumbnail.url)
 
                     return <img id={`screenshot${i}`} key={curr.id} src={imageSRC} alt={`Screenshot ${i + 1} of ${title}`} className="w-full inline" />
                 })}
