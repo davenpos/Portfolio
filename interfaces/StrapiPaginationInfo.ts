@@ -1,5 +1,5 @@
-interface StrapiPaginationInfo {
-    data: StrapiEntry[]
+interface StrapiPaginationInfo<T extends StrapiEntry> {
+    data: T[]
     numOfPages: number
     pageNum: number
     total: number

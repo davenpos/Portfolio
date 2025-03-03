@@ -6,7 +6,7 @@ export default async function getPaginationVars<T extends StrapiEntry>(
     numPerPage: number,
     slug: CollectionTypeSlug,
     field: string
-) {
+): Promise<StrapiPaginationInfo<T>> {
     const searchParams = await sp
     const pageNum = searchParams.page ? parseInt(searchParams.page as string) : 1
     const start = (pageNum - 1) * numPerPage
