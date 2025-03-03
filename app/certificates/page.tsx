@@ -5,10 +5,10 @@ import Pagination from '@/components/Pagination'
 import getPaginationVars from '@/functions/getPaginationVars'
 import getEntryInfo from '@/functions/getEntryInfo'
 
-export default async function Page({searchParams}) {
+export default async function Page({searchParams}: {searchParams: SearchParams}) {
     const numPerPage = 5
-    const pagVars = await getPaginationVars(searchParams, numPerPage, "certificates", "completed")
-    const pageContent = await getEntryInfo('page-contents', 'certificates')
+    const pagVars = await getPaginationVars<Certificate>(searchParams, numPerPage, "certificates", "completed")
+    const pageContent = await getEntryInfo<PageContent>('page-contents', 'certificates')
 
     return (<>
         <PageHeading text="Simeon's Certificates" topMargin={false} />

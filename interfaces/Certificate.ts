@@ -1,4 +1,4 @@
-interface Project extends StrapiEntry {
+interface Certificate extends StrapiEntry {
     name: string
     instructor: string | null
     completed: Date

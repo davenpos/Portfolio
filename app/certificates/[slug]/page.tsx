@@ -6,15 +6,15 @@ import createValidURL from '@/functions/createValidURL'
 import getEntryInfo from '@/functions/getEntryInfo'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 
-export default async function Page({params}) {
+export default async function Page({params}: {params: PageParams}) {
     const p = await params
-    const currProject = await getEntryInfo('certificates', p.slug)
+    const currProject = await getEntryInfo<Certificate>('certificates', p.slug)
     const name = currProject.name
     const instructor = currProject?.instructor
     const completed = currProject.completed
     const link = createValidURL(currProject?.link)
     const desc = currProject.description
-    const picture = currProject.picture.formats.medium.url
+    const picture = createValidURL(currProject.picture.formats.medium?.url || currProject.picture.formats.small?.url || currProject.picture.formats.thumbnail.url)
 
     return (<>
         <PageHeading text={name} topMargin={false} />
