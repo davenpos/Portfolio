@@ -13,7 +13,7 @@ export default function Certificate(props) {
         <div className="flex flex-col max-w-full overflow-hidden">
             <div className="text-center md:text-left">
                 <Link href={`/certificates/${props.slug}`} className="hover:opacity-50 duration-300 font-bold text-lg md:text-xl text-center md:text-left">
-                    {props.title}
+                    {props.name}
                 </Link>
             </div>
             <Information type="Date completed" text={props.completed} />
