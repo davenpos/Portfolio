@@ -4,7 +4,7 @@ import PageHeading from '@/components/PageHeading'
 import getEntryInfo from '@/functions/getEntryInfo'
 
 export default async function Page() {
-    const pageContent = await getEntryInfo('page-contents', 'contact')
+    const pageContent = await getEntryInfo<PageContent>('page-contents', 'contact')
 
     return (<>
         <PageHeading text="Contact Simeon" topMargin={false} />
