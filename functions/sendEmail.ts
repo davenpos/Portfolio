@@ -9,7 +9,6 @@ export default async function sendEmail(fromEmail: string, subject: string, cont
         if (p !== "") htmlContent += `<p>${p}</p>`
     })
 
-    //try {
     await sendgrid.send({
         to: "simmywim@hotmail.com",
         from: process.env.OTHER_EMAIL,
