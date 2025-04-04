@@ -4,7 +4,7 @@ import NavbarIcon from '@/components/NavbarIcon'
 import windowSizeState from '@/functions/windowSizeState'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-export default function Navbar({menuOpen, setMenuOpen}) {
+export default function Navbar({ menuOpen, setMenuOpen }) {
     const menuLinks = [
         {
             id: 1,
@@ -28,11 +28,6 @@ export default function Navbar({menuOpen, setMenuOpen}) {
         },
         {
             id: 5,
-            name: "Certificates",
-            href: "/certificates"
-        },
-        {
-            id: 6,
             name: "Contact",
             href: "/contact"
         }
@@ -51,7 +46,7 @@ export default function Navbar({menuOpen, setMenuOpen}) {
         if (windowSize === "large" && menuOpen) setMenuOpen(false)
     }, [windowSize, menuOpen, setMenuOpen])
 
-    return(<>
+    return (<>
         <nav className={`bg-amber-600 z-30 ${windowSize === "small" ? `w-full absolute top-0 left-0 opacity-90 text-left px-3 py-2 transition duration-300 ${!menuOpen && "-translate-y-full"}` : "inline-block text-base md:text-xl py-1 text-slate-800 rounded-full cursor-default"}`}>
             {windowSize === "small" && <NavbarIcon icon={faXmark} open={false} setMenuOpen={setMenuOpen} />}
             {menuLinks.map((ml, i) => {
