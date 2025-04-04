@@ -3,6 +3,7 @@ import PageHeading from '@/components/PageHeading'
 import Projects from '@/components/Projects'
 import Institute from '@/components/Institute'
 import ViewMore from '@/components/ViewMore'
+import EmailForm from '@/components/EmailForm'
 import getStrapi from '@/functions/getStrapi'
 import imgSrc from '@/assets/SD.jpg'
 
@@ -15,9 +16,6 @@ export default async function Page() {
         }
     }
     const latestProjects = await getStrapi("projects", qs.stringify(query), true)
-
-    query.sort = "start:desc"
-    const latestEducation = await getStrapi("educations", qs.stringify(query), true)
 
     const education = [
         {
@@ -61,6 +59,8 @@ export default async function Page() {
                 return <Institute key={i} name={ins.name} start={ins.start} end={ins.end} logo={ins.logo} degree={ins.degree} />
             })}
         </div>
-        <ViewMore length={latestEducation.meta.pagination.total} href="/education" text="View more of Simeon's education" />
+        <PageHeading text="Contact Simeon" topMargin={false} />
+        <p>The best way to contact me is via email. The form to email me is below. My personal email address is simmywim@hotmail.com. I can further be reached by phone at +1 (226)-402-3639. You can also connect with me on LinkedIn, which you can find the link to in the footer. If you wish to see my resume, a link to it can also be found in the footer.</p>
+        <EmailForm />
     </>)
 }

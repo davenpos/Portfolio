@@ -15,11 +15,6 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
             id: 2,
             name: "Projects",
             href: "/projects"
-        },
-        {
-            id: 3,
-            name: "Contact",
-            href: "/contact"
         }
     ]
 
