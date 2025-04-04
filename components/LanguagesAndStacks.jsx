@@ -1,33 +1,11 @@
 "use client"
-import React, { useContext } from "react"
-import { LangsLinks } from './Projects'
-import useSetQueryParams from '@/hooks/useSetQueryParams'
+import React from "react"
 
-export default function LanguagesAndStacks({arr, divClasses}) {
-    const setQueryParams = useSetQueryParams()
-    const links = useContext(LangsLinks)
-
-    return (<div className={divClasses}>
-        {arr.map((los, i) => {
-            const params = [
-                {
-                    queryVar: 'langOrStack',
-                    val: los.slug
-                },
-                {
-                    queryVar: 'page',
-                    val: 1
-                }
-            ]
-
-            return (<React.Fragment key={los.id}>
-                {links ?
-                    <span className="bg-black text-white rounded-full p-1 font-mono hover:bg-white hover:text-black duration-300 cursor-pointer" onClick={() => setQueryParams(params)}>{los.name}</span>
-                    :
-                    <span className="bg-black text-white rounded-full p-1 font-mono cursor-default">{los.name}</span>
-                }
-                {i < arr.length - 1 && <span className="cursor-default">&nbsp;</span>}
-            </React.Fragment>)
-        })}
+export default function LanguagesAndStacks({ arr }) {
+    return (<div className="hide-scrollbars w-full max-w-full whitespace-nowrap text-center md:text-left">
+        {arr.map((los, i) => (<React.Fragment key={i}>
+            <span className="bg-black text-white rounded-full p-1 font-mono cursor-default">{los}</span>
+            {i < arr.length - 1 && <span className="cursor-default">&nbsp;</span>}
+        </React.Fragment>))}
     </div>)
 }

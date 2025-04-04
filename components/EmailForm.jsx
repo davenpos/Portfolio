@@ -41,13 +41,13 @@ export default function EmailForm() {
         const subject = fd.get("subject")
         const content = fd.get("content")
 
-        if (fromEmail === "" || typeof(fromEmail) != "string" || !validator.isEmail(fromEmail)) {
+        if (fromEmail === "" || typeof (fromEmail) != "string" || !validator.isEmail(fromEmail)) {
             emailFieldRef.current.value = ""
             setMessage("Please enter your email address.")
-        } else if (subject === "" || typeof(subject) != "string") {
+        } else if (subject === "" || typeof (subject) != "string") {
             subjectFieldRef.current.value = ""
             setMessage("Please enter a subject.")
-        } else if (content === "" || typeof(content) != "string") {
+        } else if (content === "" || typeof (content) != "string") {
             contentFieldRef.current.value = ""
             setMessage("Please enter your email content.")
         } else {
@@ -61,7 +61,7 @@ export default function EmailForm() {
     }
 
     return (<>
-        <h3 className="text-2xl font-bold text-center my-3">Email Simeon:</h3>
+        <h3 className="text-2xl font-bold text-center my-3">Email me:</h3>
         <form onSubmit={formSubmit} className="text-sm md:text-base">
             <FormInput name="email" label={emailLabel} ref={emailFieldRef} />
             <FormInput name="subject" label="Subject:" ref={subjectFieldRef} />
