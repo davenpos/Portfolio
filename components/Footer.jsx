@@ -15,10 +15,6 @@ export default function Footer() {
             icon: faGithub
         },
         {
-            link: "https://bsky.app/profile/snorbertd.bsky.social",
-            icon: faBluesky
-        },
-        {
             link: "mailto:simmywim@hotmail.com",
             icon: faEnvelope
         },

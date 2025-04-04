@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Description({desc, align}) {
+export default function Description({ desc, align }) {
     desc = desc.split("\n")
 
     return (<>
