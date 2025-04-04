@@ -13,16 +13,11 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
         },
         {
             id: 2,
-            name: "About",
-            href: "/about"
-        },
-        {
-            id: 3,
             name: "Projects",
             href: "/projects"
         },
         {
-            id: 4,
+            id: 3,
             name: "Contact",
             href: "/contact"
         }
