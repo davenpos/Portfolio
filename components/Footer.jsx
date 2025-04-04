@@ -19,24 +19,8 @@ export default function Footer() {
             icon: faBluesky
         },
         {
-            link: "https://www.instagram.com/snorbertd/",
-            icon: faInstagram
-        },
-        {
-            link: "https://discordapp.com/invite/U6bkBgy",
-            icon: faDiscord
-        },
-        {
-            link: "https://www.youtube.com/@NorbertSD",
-            icon: faYoutube
-        },
-        {
             link: "mailto:simmywim@hotmail.com",
             icon: faEnvelope
-        },
-        {
-            link: "tel:+12264023639",
-            icon: faPhone
         },
         {
             link: "/resume",
